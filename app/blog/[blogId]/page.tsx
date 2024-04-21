@@ -371,7 +371,7 @@ const SingleBlog = () => {
         try {
 
           //send post request
-          const response = await fetch("http://localhost:5000/story/" + slug, {
+          const response = await fetch("http://13.50.238.74:5000/story/" + slug, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -489,7 +489,7 @@ const SingleBlog = () => {
         <div className='md:grid md:grid-cols-[1fr_400px] md:gap-[47px]'>
           <div className=''>
             <img
-              src={'http://localhost:5000/storyImages/' + blog?.image}
+              src={'http://13.50.238.74:5000/storyImages/' + blog?.image}
 
               alt={blog.title}
               width={824}
@@ -497,7 +497,7 @@ const SingleBlog = () => {
               className='w-full rounded-lg md:block hidden'
             />
             <img
-              src={'http://localhost:5000/storyImages/' + blog?.image}
+              src={'http://13.50.238.74:5000/storyImages/' + blog?.image}
               alt={blog.title}
               width={380}
               height={223}
@@ -583,7 +583,7 @@ const SingleBlog = () => {
               >
                 <div className='relative'>
                   <img
-                    src={'http://localhost:5000/storyImages/' + item.image}
+                    src={'http://13.50.238.74:5000/storyImages/' + item.image}
                     alt='blog image'
                     width={416}
                     height={272}

@@ -77,7 +77,7 @@ function Card({
       >
         <div className='relative'>
           <img
-            src={'http://localhost:5000/storyImages/' + img}
+            src={'http://13.50.238.74:5000/storyImages/' + img}
             alt='blog image'
             width={416}
             height={272}

@@ -873,9 +873,9 @@ const BlogPage = () => {
     const fetchData = async () => {
       try {
 
-        const catresp = await fetch("http://localhost:5000/story/getallcategories");
+        const catresp = await fetch("http://13.50.238.74:5000/story/getallcategories");
         const catdata = await catresp.json();
-        const response = await fetch("http://localhost:5000/story/getAllStories?search=&page=1");
+        const response = await fetch("http://13.50.238.74:5000/story/getAllStories?search=&page=1");
         const data = await response.json();
         setBlogs(data.data);
         setCategories(catdata.data);
@@ -1016,7 +1016,7 @@ const BlogPage = () => {
                 }}
               >
                 <img
-                  src={'http://localhost:5000/storyImages/' + blog?.image}
+                  src={'http://13.50.238.74:5000/storyImages/' + blog?.image}
                   alt={blog.title}
                   width={610}
                   height={427}
@@ -1025,7 +1025,7 @@ const BlogPage = () => {
 
                 <div className='w-full md:hidden rounded-sm h-[276px] overflow-hidden'>
                   <img
-                    src={'http://localhost:5000/storyImages/' + blog?.image}
+                    src={'http://13.50.238.74:5000/storyImages/' + blog?.image}
                     alt={blog.title}
                     width={382}
                     height={276}
