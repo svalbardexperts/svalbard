@@ -4,14 +4,32 @@ import { arrowGreenUp, cookie } from '@/constants/images';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Cookie = () => {
-  const [showCookie, setShowCookie] = useState(true);
+  const [showCookie, setShowCookie] = useState(false);
 
   const handleCookie = () => {
     setShowCookie(!showCookie);
+    localStorage.setItem('cookie_agreement','true');
   };
+
+  const handleClose=()=>
+    {
+      setShowCookie(!showCookie);
+    }
+
+  useEffect(()=>{
+    const checked=localStorage.getItem('cookie_agreement');
+    if(checked=='true')
+      {
+        setShowCookie(false);
+      }
+      else
+      {
+        setShowCookie(true);
+      }
+  },[])
 
   return (
     <>
@@ -35,7 +53,7 @@ const Cookie = () => {
         {/* close cookie btn */}
         <X
           className='absolute top-4 right-4 cursor-pointer'
-          onClick={handleCookie}
+          onClick={handleClose}
         />
         <div className='flex md:flex-row flex-col items-center justify-center md:gap-6 gap-3'>
           <Image
