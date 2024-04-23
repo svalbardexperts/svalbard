@@ -12,11 +12,11 @@ const buttonVariants = cva(
         default:
           'bg-primary text-primary-foreground hover:bg-primary/90 !rounded-md ',
         outline:
-          'text-primaryText text-[22px] font-medium border-solid border-[3px] border-primaryText flex items-center justify-between hover:bg-[#D1D9F466] ',
+          'text-primaryText text-[22px] font-medium border-solid border-[3px] border-primaryText flex items-center justify-between hover:bg-[#D1D9F466] relative',
         primary:
-          'py-2 pr-2 pl-9 flex items-center justify-between gap-9 bg-[#FBFDFC] text-black rounded-lg text-[22px] leading-[33px] font-medium',
+          'md:py-2 py-1 md:pr-2 pr-1 md:pl-9 pl-3 flex items-center justify-between md:gap-9 gap-3 bg-[#FBFDFC] text-black md:rounded-lg rounded-sm md:text-[22px] text-[15px] md:leading-[33px] leading-6 md:font-medium font-normal',
         secondary:
-          'py-2 pr-2 pl-9 flex items-center justify-between gap-9 text-primaryText rounded-lg text-[22px] leading-[33px] font-medium bg-gradient-linear',
+          'md:py-2 py-1 md:pr-2 pr-1 md:pl-9 pl-3 flex items-center justify-between md:gap-9 gap-3 text-primaryText md:rounded-lg rounded-sm md:text-[22px] text-[15px] mkd:leading-[33px] leading-6 md:font-medium font-normal bg-gradient-linear',
 
         'phone-outline':
           'border border-input bg-background hover:bg-accent hover:text-accent-foreground ',
@@ -31,10 +31,10 @@ const buttonVariants = cva(
       },
       size: {
         default: 'h-10 px-4 py-2',
-        lg: 'w-[285px] h-[72px]',
-        md: 'w-[267px] h-[72px]',
+        lg: 'md:w-[285px] h-[156px] md:h-[72px] h-[36px]',
+        md: 'md:w-[267px] w-[145px] md:h-[72px] h-[36px]',
         icon: '',
-        outline: 'w-[253px] h-[76px] p-[10px] pl-8',
+        outline: 'w-[253px] p-[10px] pl-8',
         input: 'md:h-[55px] h-[44px]  w-[115px]',
       },
     },

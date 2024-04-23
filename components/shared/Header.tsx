@@ -1,123 +1,105 @@
 'use client';
 
 import { scrollToTop } from '@/constants/hanlders';
-import { arrowGreenUp, map, whatsAppWhite } from '@/constants/images';
+import { arrowGreenUp, map } from '@/constants/images';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../ui/button';
-import { LineChartIcon, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { FaBars } from 'react-icons/fa';
+import Modal from '../ui/modal';
+import { mapMobile } from '@/constants/mobileImages';
 
 const navLinks = [
-  { name: 'home', href: '/' },
-  { name: 'about us', href: '/about' },
-  { name: 'blog', href: '/blog' },
-  { name: 'contact us', href: '/contact' },
+  { name: 'home', href: '/', title: 'home' },
+  { name: 'about us', href: '/about', title: 'about' },
+  { name: 'blog', href: '/blog', title: 'blog' },
+  { name: 'contact us', href: '/contact', title: 'contact' },
 ];
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const pathName = usePathname();
+  const [title, setTitle] = useState('home');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 120) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
     <nav className='fixed left-0 top-0 w-full z-50'>
-      <DesktopViewNav scrolled={scrolled} pathName={pathName} />
-      <ResponsiveNav scrolled={scrolled} pathName={pathName} />
+      <DesktopViewNav title={title} setTitle={setTitle} />
+      <ResponsiveNav title={title} setTitle={setTitle} />
     </nav>
   );
 };
 
 function DesktopViewNav({
-  scrolled,
-  pathName,
+  title,
+  setTitle,
 }: {
-  scrolled: boolean;
-  pathName: string;
+  title?: string;
+  setTitle: (newTitle: string) => void;
 }) {
   return (
     <div
       className={cn(
-        'md:flex hidden md:py-6 items-center justify-around relative z-50',
-        scrolled && 'glass',
+        'md:flex hidden md:py-6 items-center justify-around relative z-50 glass',
       )}
     >
-      <div className='flex items-center cursor-pointer' onClick={scrollToTop}>
-        <Image src={map} alt='Map' width={70} height={72} />
-        <h3 className='text-4xl font-bold text-primaryText'>
-          Svalbard<span className='font-normal'>Experts</span>
-        </h3>
-      </div>
+      <Link href='/'>
+        <div className='flex items-center cursor-pointer' onClick={scrollToTop}>
+          <Image src={map} alt='Map' width={70} height={72} />
+          <h3 className='text-4xl font-bold text-primaryText select-none'>
+            Svalbard<span className='font-normal'>Experts</span>
+          </h3>
+        </div>
+      </Link>
       <ul className='flex items-center md:gap-10'>
         {navLinks.map((navLink) => (
           <Link key={navLink.href} href={navLink.href}>
             <li
               className={cn(
                 'text-xl leading-7 text-primaryText capitalize',
-                pathName.startsWith(navLink.href)
-                  ? 'font-semibold'
-                  : 'font-normal',
+                navLink.title === title ? 'font-semibold' : 'font-normal',
               )}
+              onClick={() => {
+                setTitle(navLink.title);
+              }}
             >
               {navLink.name}
             </li>
           </Link>
         ))}
-      </ul>
-      <div className='flex items-center justify-center gap-5'>
-        <Link href=''>
-          <Image
-            src={whatsAppWhite}
-            alt='Whatsapp icon'
-            width={36}
-            height={37}
-          />
-        </Link>
+      </ul>{' '}
+      <Modal>
         <Button variant='outline' size='outline'>
           <span>Book a trip</span>
-          <div className='inline-flex items-center justify-center whitespace-nowrap rounded-lg ring-offset-background transition-colors  bg-primaryText h-[56px] w-[56px]'>
+
+          <div className='grid place-content-center rounded-md ring-offset-background transition-colors  bg-primaryText h-[56px] w-[56px]'>
             <Image src={arrowGreenUp} alt='Arrow green' width={27} />
           </div>
         </Button>
-      </div>
+      </Modal>
     </div>
   );
 }
 
 function ResponsiveNav({
-  scrolled,
-  pathName,
+  title,
+  setTitle,
 }: {
-  scrolled: boolean;
-  pathName: string;
+  title?: string;
+  setTitle: (newTitle: string) => void;
 }) {
   const [showList, setShowList] = useState(false);
 
   return (
     <div className='md:hidden flex items-center justify-between py-3 px-6 h-[70px] relative glass'>
-      <div className='flex items-center cursor-pointer' onClick={scrollToTop}>
-        <Image src={map} alt='Map' width={35} height={37} />
-        <h3 className='text-[17px] font-bold text-primaryText'>
-          Svalbard<span className='font-normal'>Experts</span>
-        </h3>
-      </div>
+      <Link href='/'>
+        <div className='flex items-center cursor-pointer' onClick={scrollToTop}>
+          <Image src={mapMobile} alt='Map' width={35} height={37} />
+          <h3 className='text-[17px] font-bold text-primaryText select-none'>
+            Svalbard<span className='font-normal'>Experts</span>
+          </h3>
+        </div>
+      </Link>
       <button className='text-white' onClick={() => setShowList(!showList)}>
         {showList === false ? (
           <FaBars className='h-6 w-6' />
@@ -129,22 +111,45 @@ function ResponsiveNav({
       {showList && (
         <ul className='absolute top-[70px] left-0 right-0 pt-10 pb-[60px] bg-white flex flex-col items-center justify-center space-y-4 z-50'>
           {navLinks.map((navLink) => (
-            <Link href={navLink.href} key={navLink.name}>
-              <li
-                className={cn(
-                  'text-lg leading-7 capitalize',
-                  pathName.startsWith(navLink.href)
-                    ? 'font-semibold text-[#017867] underline'
-                    : 'font-normal text-black',
-                )}
-              >
+            <li
+              key={navLink.name}
+              className={cn(
+                'text-lg leading-7 capitalize',
+                navLink.title === title
+                  ? 'font-semibold text-[#017867] underline'
+                  : 'font-normal text-black',
+              )}
+              onClick={() => {
+                setTitle(navLink.title);
+              }}
+            >
+              <Link href={navLink.href} onClick={() => setShowList(!showList)}>
                 {navLink.name}
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
 
           <li>
-            <button>Book a trip</button>
+            <Modal>
+              <button
+                className='gap-2 w-[138px] py-[6px] pl-3 pr-[6px] bg-base flex items-center justify-between rounded-[5px] mx-auto'
+                style={{
+                  boxShadow: '0px 4.01px 10.54px 0px #00000040',
+                }}
+                // onClick={() => setShowList(!showList)}
+              >
+                <span className='text-[15px] leading-[24px] text-white'>
+                  Book a trip
+                </span>
+                <span className='w-7 h-7 rounded-[5px] grid place-content-center bg-white'>
+                  <Image
+                    src={arrowGreenUp}
+                    alt='Book a trip'
+                    className='scale-75'
+                  />
+                </span>
+              </button>
+            </Modal>
           </li>
         </ul>
       )}

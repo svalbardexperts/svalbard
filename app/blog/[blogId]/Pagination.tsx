@@ -68,20 +68,20 @@ function Card({
   const blogTitle = title.split(" ").slice(0, 5).join(" ");
   const blogDescription = content;
   return (
-    <div className='px-6'>
+    <div className='px-8 h-[370px]'>
       <div
         style={{
           boxShadow: '4px 4px 12px 0px rgba(0, 0, 0, 0.15)',
         }}
-        className='rounded-[15.16px] text-white'
+        className='h-full rounded-[15.16px] text-white'
       >
         <div className='relative'>
           <img
             src={'http://13.50.238.74/api/storyImages/' + img}
             alt='blog image'
-            width={416}
-            height={272}
-            className='w-full rounded-[15px]'
+            width={240}
+            height={156}
+            className='w-full h-[176px] rounded-[15px]'
           />
           <button
             className='absolute top-8 right-8 h-[45px] w-[45px] rounded-full bg-base flex items-center justify-center'

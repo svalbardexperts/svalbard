@@ -2,6 +2,7 @@ import { getInTouchImg } from '@/constants/images';
 import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../Form/Contact';
+import { getInTouchImgMobile } from '@/constants/mobileImages';
 
 const GetInTouch = () => {
   return (
@@ -21,19 +22,16 @@ const GetInTouch = () => {
         />
 
         <Image
-          src={getInTouchImg}
+          src={getInTouchImgMobile}
           alt='Get in touch'
           width={382}
           height={267}
-          className='w-full rounded-lg md:hidden'
+          className='w-full rounded-sm md:hidden'
         />
         <div className='md:py-10 pt-[31px] pb-10 md:px-[129px] px-7 md:min-h-[440px]'>
-          <h3 className='md:text-[38px] text-[32px] text-[#2E3034] font-semibold md:leading-[50px] leading-[43px] text-center'>
+          <h3 className='md:text-[38px] text-[32px] text-[#2E3034] font-semibold md:leading-[50px] leading-[43px] text-center md:mb-2 mb-[6px]'>
             Get in touch
           </h3>
-          <p className='md:mt-2 mt-[6px] md:mb-6 mb-[21px] md:text-lg text-[15px] text-gray font-normal md:leading-7 leading-6 text-center'>
-            If you want to avail with us feel free to contact with us
-          </p>
 
           <Contact />
         </div>

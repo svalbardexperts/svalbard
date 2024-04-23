@@ -64,7 +64,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => (
     <Input
       className={cn(
-        'rounded-e-lg rounded-s-none ',
+        'rounded-e-md rounded-s-none ',
         'md:p-[18px] p-3 pl-[14px] text-[#91959A] text-[15px] font-normal border-[#8B8F99] md:h-[52px] h-[44px]',
         className,
       )}
@@ -104,15 +104,16 @@ const CountrySelect = ({
           type='button'
           variant={'phone-outline'}
           className={cn(
-            'flex gap-1 rounded-e-none rounded-s-lg px-3 md:h-[52px] h-[44px] shadow-',
+            'flex gap-1 rounded-e-none rounded-s- px-3 md:h-[52px] h-[44px] shadow-',
           )}
-          disabled={disabled}
+          // disabled={disabled}
+          disabled={false}
         >
           <FlagComponent country={value} countryName={value} />
           <ChevronsUpDown
             className={cn(
               '-mr-2 h-4 w-4 opacity-50',
-              disabled ? 'hidden' : 'opacity-100',
+              // disabled ? 'hidden' : 'opacity-100',
             )}
           />
         </Button>

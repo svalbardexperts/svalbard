@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input';
 import {
   arrowGreenUp,
   arrowWhiteUp,
+  blog,
   groupSquare,
   search,
   tripImg,
@@ -25,15 +26,13 @@ import Link from 'next/link';
 import { Contact } from '@/components/Form/Contact';
 import GetInTouch from '@/components/shared/GetInTouch';
 
-type Checked = DropdownMenuCheckboxItemProps['checked'];
-
-// const categories = [
-//   'category 1',
-//   'category 2',
-//   'category 3',
-//   'category 4',
-//   'category 5',
-// ];
+const categories = [
+  'category 1',
+  'category 2',
+  'category 3',
+  'category 4',
+  'category 5',
+];
 
 // TODO: remove this data after databse integration
 const data = [
@@ -869,7 +868,7 @@ const BlogPage = () => {
   const [query, setQuery] = useState('');
   const [categories, setCategories] = useState([]);
   console.log(categories);
-  useEffect(() => { 
+  useEffect(() => {
     const fetchData = async () => {
       try {
 
@@ -888,7 +887,16 @@ const BlogPage = () => {
     };
     fetchData();
   }, []);
-  // console.log(categories);
+
+  const handleViewMore = () => {
+    setSliced(sliced + 4);
+  };
+
+  const handleViewLess = () => {
+    window.scrollTo(0, 4800);
+    setSliced(sliced - 4);
+  };
+
   //TODO: replace the data with actual blogs data
   const categorizedBlogs = blogs.filter((blog) => {
     if (selectedCategory === 'categories') return blog;
@@ -911,33 +919,29 @@ const BlogPage = () => {
   };
 
   return (
-    <section>
+    <section className='relative'>
       <Image
-        src={tripImg}
+        src={blog}
         alt='Blogs'
         width={1512}
-        height={890}
-        className='hidden md:block w-full'
+        height={400}
+        className='hidden md:block h-[400px] w-full'
       />
-      ;
+
       <Image
-        src={tripImg}
+        src={blog}
         alt='Blogs'
-        width={430}
-        height={431}
-        className='md:hidden w-full'
+        width={400}
+        height={220}
+        className='md:hidden w-full h-[220px] '
       />
-      ;
-      <div className='md:mt-[120px] mt-[60px] custom-shadow'>
-        <h3 className='custom-header'>Blog</h3>
-        <p className='custom-title md:mt-5 mt-2 md:mb-14 mb-6'>
-          It’s easy, just leave your details here and we{' '}
-          <span className='block' /> will contact you
-        </p>
+      <div className='md:mt-[90px] mt-[60px]'>
+        <h3 className='custom-header md:mb-14 mb-6'>Blog</h3>
+
         {/* search query */}
         <div className='flex items-center justify-center md:gap-6 gap-3'>
           <div
-            className='md:w-[690px] w-[178px] md:h-[60px] h-10 relative flex items-center md:rounded-md rounded-sm outline-none'
+            className='md:w-[690px] w-[178px] md:h-[60px] h-10 relative flex items-center md:rounded-md rounded-sm outline-none '
             style={{
               boxShadow:
                 '4px 4px 12px 0px #0000001A, -4px -4px 12px 0px #0000001A',
@@ -964,7 +968,7 @@ const BlogPage = () => {
           {/* Category Select button */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className='bg-base md:h-[60px] h-10 md:w-[297px] w-[131px] md:rounded-md rounded-sm flex items-center md:justify-between'>
+              <button className='bg-base md:h-[60px] h-10 md:w-[297px] w-[133px] md:rounded-md rounded-sm flex items-center md:justify-between'>
                 <Image
                   src={groupSquare}
                   alt='Group Square'
@@ -978,11 +982,11 @@ const BlogPage = () => {
                   height={14}
                   className='ml-2 mr-1 md:hidden'
                 />
-                <p className='md:text-[22px] text-[11px] text-white font-normal md:leading-[33px] leading-[18px] md:mr-0 mr-7'>
+                <p className='md:text-[22px] text-[12px] text-white font-normal md:leading-[33px] leading-[18px] md:mr-0 mr-2 md:ml-0 ml-1.5'>
                   {selectedCategory}
                 </p>
 
-                <ChevronDown className='text-white text-3xl md:mr-2' />
+                <ChevronDown className='text-white text-3xl md:mr-2 mr-[1px]' />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56'>
@@ -992,6 +996,7 @@ const BlogPage = () => {
                 <DropdownMenuCheckboxItem
                   key={category}
                   onClick={() => setSelectedCategory(category.category)}
+                  className='text-[11px]'
                 >
                   {category.category}
                 </DropdownMenuCheckboxItem>
@@ -1010,7 +1015,7 @@ const BlogPage = () => {
             displayedBlogs.map((blog, index) => (
               <div
                 key={index}
-                className='md:h-[430px]  md:rounded-lg rounded-sm md:grid md:grid-cols-[610px_1fr] overflow-hidden'
+                className='md:h-[430px] md:rounded-lg rounded-sm md:grid md:grid-cols-[610px_1fr] overflow-hidden'
                 style={{
                   boxShadow: '0.74px 0px 20px 2.22px #3131311A',
                 }}
@@ -1023,8 +1028,8 @@ const BlogPage = () => {
                   className='w-full h-full md:block hidden'
                 />
 
-                <div className='w-full md:hidden rounded-sm h-[276px] overflow-hidden'>
-                  <img
+                <div className='w-full md:hidden rounded-sm h-[276px] overflow-hidden '>
+                <img
                     src={'http://13.50.238.74/api/storyImages/' + blog?.image}
                     alt={blog.title}
                     width={382}
@@ -1032,8 +1037,8 @@ const BlogPage = () => {
                     className='h-full w-full'
                   />
                 </div>
-                <div className='md:pt-10 pt-[23px] md:pl-12 pl-4 md:pb-24 pb-[23px] '>
-                  <h3 className='md:text-[36px] text-2xl font-semibold md:leading-[49px] leading-[31px] text-[#2E3034]'>
+                <div className='md:pt-10 pt-[23px] md:pl-12 pl-4 pr-4 md:pb-24 pb-[23px] '>
+                  <h3 className='md:text-[32px] text-2xl font-semibold md:leading-[47px] leading-[31px] text-[#2E3034]'>
                     {blog.title}
                   </h3>
                   <p className='md:mt-3 mt-2 md:mb-8 mb-6 md:text-lg text-[13px] text-gray font-normal md:leading-7 leading-5'
@@ -1069,12 +1074,13 @@ const BlogPage = () => {
             ))
           }
         </div>
-        <div className='md:mt-12 grid place-content-center md:block hidden '>
+        <div className='md:mt-12 md:grid place-content-center hidden '>
           {sliced !== categorizedBlogs.length ? (
             <Button
               variant='primary'
               size='md'
-              onClick={() => setSliced(sliced + 4)}
+              className='md:!w-[230px]'
+              onClick={handleViewMore}
             >
               <span className='text-lg text-black font-medium leading-7'>
                 View more
@@ -1087,7 +1093,8 @@ const BlogPage = () => {
             <Button
               variant='primary'
               size='md'
-              onClick={() => setSliced(sliced - 4)}
+              className='md:!w-[230px]'
+              onClick={handleViewLess}
             >
               <span className='text-lg text-black font-medium leading-7'>
                 View less

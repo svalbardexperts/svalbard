@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useEffect } from 'react';
 
 const Reviews = () => {
@@ -19,23 +18,13 @@ const Reviews = () => {
       document.body.removeChild(script2);
     };
   }, []);
-
   return (
-    <div className=' md:py-[120px] w-full'>
-      <h3 className='mb-[63px] text-[55px] text-black leading-[66px] text-center font-bold'>
-        What people are{' '}
-        <span className='inline-block bg-base rounded-lg text-primaryText'>
-          saying?
-        </span>
+    <div className='md:py-[120px] py-[60px] w-full'>
+      <h3 className='md:mb-[63px] mb-8 custom-header'>
+        What people are <span className='header-span'>saying?</span>
       </h3>
-      {/* Tripadviser widget */}
-      <script
-        src='https://cdn.commoninja.com/sdk/latest/commonninja.js'
-        defer
-      ></script>
+      {/* Tripadvisor widget */}
       <div className='commonninja_component pid-ea5150d4-2d3a-4a4d-8eec-e6c257396fc7'></div>
-
-      {/* Widget Id: ea5150d4-2d3a-4a4d-8eec-e6c257396fc7 */}
     </div>
   );
 };

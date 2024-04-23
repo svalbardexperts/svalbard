@@ -7,9 +7,9 @@ import NatureTouchSection from '@/components/Home/NatureTouchSection';
 import PersonalizedPathways from '@/components/Home/PersonalizedPathways';
 import Reviews from '@/components/shared/Reviews';
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div className=''>
+    <div>
       <HomeBanner />
       <HomeTrips />
       <PersonalizedPathways />

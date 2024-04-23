@@ -11,6 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '../ui/button';
+import { mapMobile } from '@/constants/mobileImages';
 
 const footerLinks = [
   { name: 'Home', href: '/' },
@@ -35,37 +36,33 @@ const Footer = () => {
         {/* main footer */}
         <aside className='pb-8 text-primaryText flex flex-col md:flex-row items-start md:gap-[176px] gap-8'>
           <div className='md:w-[428px] '>
-            <div className='flex items-center md:mb-4'>
-              <Image
-                src={map}
-                alt='Map'
-                width={50}
-                height={60}
-                className='md:block hidden'
-              />
-              <Image
-                src={map}
-                alt='Map'
-                width={40}
-                height={42}
-                className='md:hidden'
-              />
-              <h3 className='md:text-[27px] text-5 text-primaryText font-bold md:leading-[41px] leading-[30px] tracking-[-3%] uppercase'>
-                svalbard<span className='font-medium'>Exparts</span>
-              </h3>
-            </div>
+            <Link href='/'>
+              <div className='flex items-center md:mb-4'>
+                <Image
+                  src={map}
+                  alt='Map'
+                  width={58}
+                  height={68}
+                  className='md:block hidden'
+                />
+                <Image
+                  src={mapMobile}
+                  alt='Map'
+                  width={48}
+                  height={42}
+                  className='md:hidden mr-1'
+                />
+                <h3 className='md:text-[27px] text-5 text-primaryText font-bold md:leading-[41px] leading-[30px] tracking-[-3%] uppercase'>
+                  svalbard<span className='font-medium'>Experts</span>
+                </h3>
+              </div>
+            </Link>
             <p className='md:text-lg md:font-normal leading-7'>
-              It is a travelling agency Where the air is infused with the
-              essence of adventure, and every step leads to a new chapter of
-              extraordinary tales waiting to be written.{' '}
+              SvalbardExperts is a leading travel agency specializing in
+              creating unforgettable trips in Svalbard. We tailor-make your
+              journey to Svalbard with personalized itineraries, ensuring
+              wonderful memories are made.
             </p>
-            <div className='flex items-center justify-start md:gap-3 gap-1.5 mt-4'>
-              {icons.map((icon, index) => (
-                <Link href='' key={index * Math.random()}>
-                  <Image src={icon} alt='Footer Icon' width={25} height={25} />
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* navigations */}
@@ -89,24 +86,22 @@ const Footer = () => {
               Talk to an expert
             </h3>
             <ul className='md:mt-6 mt-4 mb-6'>
-              <li>Vei 500 9170, Longyearbyen Svalbard, </li>
-              <li>Norway</li>
-              <li>info@svalbardeal.com</li>
-              <li>+47-906-88-057</li>
+              <li>Tangbryggja 18, 110 Reykjavik, Iceland</li>
+              <li>Company registration number: 451223-1190</li>
+              <li>info@svalbardexperts.com</li>
+              <li>+3547826534</li>
             </ul>
-
-            <InputWithButton />
           </div>
         </aside>
         <hr className='hidden md:block scale-125' />
         {/* bottom footer */}
-        <aside className='md:pt-10 mt-2 text-[#EDEEF0] font-normal leading-6 md:text-[15px] text-[13px] md:leading-6 text-5 opacity-80  flex flex-col-reverse md:flex-row items-center justify-between'>
-          <p className='text-[10px] md:text-[15px] md:mt-0 mt-8'>
+        <aside className='md:pt-10 mt-2 text-[#EDEEF0] font-normal leading-6 md:text-[15px] text-[13px] md:leading-6 text-5 opacity-80  flex flex-col-reverse md:flex-row items-center justify-end '>
+          <p className='text-[10px] md:text-[15px] md:mt-0 mt-8 md:translate-x-0 translate-x-6'>
             &copy; {new Date().getFullYear()} SvalbardExperts. All rights
             reserved
           </p>
 
-          <ul className='flex items-center h-min'>
+          <ul className='flex items-center justify-end h-min w-full '>
             <li className='md:pr-2 pr-[10px]  '>
               <Link href='privacy-policy'>Privacy Policy</Link>
             </li>
@@ -130,7 +125,7 @@ export function InputWithButton() {
     <div className='flex w-full md:h-[55px] h-[44px] items-center space-x-2 relative'>
       <Input
         type='email'
-        placeholder='Enter your Email'
+        placeholder='Email'
         className='absolute left-0 right-0 md:h-[55px] h-[44px]'
       />
       <div className='absolute right-0 '>

@@ -1,7 +1,7 @@
-import homeBanner from '../public/assets/images/hero-home.jpeg';
-import headerLogo from '../public/assets/images/header-logo.png';
-import map from '../public/assets/images/header-map.png';
+import ocean from '../public/assets/gif/ocean.gif';
+import oceanMobile from '../public/assets/gif/ocean-mobile.gif';
 
+import map from '../public/assets/images/header-map.png';
 import tripImg from '../public/assets/images/trip-img-2.jpeg';
 import tripsImg1 from '../public/assets/images/trips-img-1.jpeg';
 import tripsImg2 from '../public/assets/images/trips-img-2.jpeg';
@@ -18,6 +18,10 @@ import attractionsImg6 from '../public/assets/images/attractions-img-6.png';
 import attractionsImg7 from '../public/assets/images/attractions-img-7.png';
 import attractionsImg8 from '../public/assets/images/attractions-img-8.png';
 
+import blog from '../public/assets/images/blog-img.jpeg';
+import contact from '../public/assets/images/contact-img.jpeg';
+import about from '../public/assets/images/about.jpeg';
+
 import longArrow from '../public/assets/images/long-arrow.png';
 import natureTouch1 from '../public/assets/images/nature-touch-1.jpeg';
 import natureTouch3 from '../public/assets/images/nature-touch-3.jpeg';
@@ -28,6 +32,7 @@ import getInTouchImg from '../public/assets/images/get-in-touch-img.jpeg';
 import founder from '../public/assets/images/founder.jpeg';
 import contactBanner from '../public/assets/images/contact-banner-img.jpeg';
 import privacyPolicy from '../public/assets/images/privacy-policy.jpeg';
+import dialogImage from '../public/assets/images/dialog-img.jpeg';
 
 import whatsAppWhite from '../public/assets/icons/whatsapp-white.svg';
 import whatsAppGreen from '../public/assets/icons/whatsapp-green.svg';
@@ -59,10 +64,13 @@ import phoneGreen from '../public/assets/icons/phone-fill-green.svg';
 import mailGreen from '../public/assets/icons/mail-green.svg';
 import groupSquare from '../public/assets/icons/group-square.svg';
 import search from '../public/assets/icons/search.svg';
+import cookie from '../public/assets/icons/cookie.svg';
+
+// import video from '../public/ocean.mp4';
+// import video from '../public/video.webm';
 
 export {
-  homeBanner,
-  headerLogo,
+  ocean,
   map,
   arrowGreenUp,
   whatsAppWhite,
@@ -116,4 +124,10 @@ export {
   search,
   groupSquare,
   tripImg,
+  oceanMobile,
+  dialogImage,
+  cookie,
+  blog,
+  contact,
+  about,
 };

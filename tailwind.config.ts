@@ -60,6 +60,7 @@ const config = {
       backgroundImage: {
         'gradient-linear': 'linear-gradient(90deg, #15B14A 60%, #21B253 40%)',
         'mountain-patterns': "url('../public/assets/images/mountains.png')",
+        'dialog-image': "url('../public/assets/images/trips-img-4.jpeg')",
       },
       boxShadow: {
         'drop-shadow': '0px 5.7px 15px 0px #00000040',

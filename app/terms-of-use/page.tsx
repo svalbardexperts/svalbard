@@ -1,5 +1,6 @@
 import GetInTouch from '@/components/shared/GetInTouch';
 import { natureTouch1 } from '@/constants/images';
+import { natureTouch1Mobile } from '@/constants/mobileImages';
 import Image from 'next/image';
 import React from 'react';
 
@@ -34,42 +35,54 @@ const termsAndConditions = [
 const TermsOfUse = () => {
   return (
     <section>
-      <Image src={natureTouch1} alt='Terms of use' width={15512} height={890} />
-      <div className='md:pt-[120px] md:pb-[160px] md:px-[100px]'>
+      <Image
+        src={natureTouch1}
+        alt='Terms of use'
+        width={1512}
+        height={400}
+        className='md:block hidden w-full h-[400px]'
+      />
+      <Image
+        src={natureTouch1Mobile}
+        alt='Terms of use'
+        width={400}
+        height={220}
+        className='md:hidden w-full h-[220px]'
+      />
+      <div className='md:pt-[90px] pt-[60px] md:pb-[160px] pb-[60px] md:px-[100px] px-6'>
         <h3 className='custom-header'>Terms & Conditions</h3>
-        <h4 className='text-gray text-[26px] leading-9 font-medium md:mb-5 md:mt-14'>
+        <h4 className='text-gray md:text-[26px] text-[15px] md:leading-9 leading-6 font-medium md:mb-5 mb-3 md:mt-14 mt-6'>
           You agree to use Svalbard Experts website for the following purposes:
         </h4>
-        <ul className='md:mb-5'>
+        <ul className='md:mb-5 mb-3'>
           {purposes.map((purpose, index) => (
             <li key={index}>
-              <p className='text-[22px] text-gray font-normal leading-[33px]'>
+              <p className='md:text-[22px] text-[15px] text-gray font-normal md:leading-[33px] leading-6'>
                 {purpose}
               </p>
             </li>
           ))}
         </ul>
-        <p className='text-[22px] text-gray font-normal leading-[33px]'>
+        <p className='md:text-[22px] text-[15px] text-gray font-normal md:leading-[33px] leading-6 md:mb-5 mb-3'>
           The Svalbard Experts website displays and uses a range of content,
           including and not limited to images, designs, videos, and reviews.
           Unless otherwise stated, we own or are licensed to use this content.
         </p>
-        <p className='text-[22px] text-gray font-normal leading-[33px]'>
+        <p className='md:text-[22px] text-[15px] text-gray font-normal md:leading-[33px] leading-6 md:mb-5 mb-3'>
           By using our website, you agree not to reproduce, copy, republish,
           download, or transmit any of this intellectual property unless written
           permission is granted.
         </p>
-
-        <p className='text-[22px] text-gray font-normal leading-[33px] md:py-5'>
+        <p className='md:text-[22px] text-[15px] text-gray font-normal md:leading-[33px] leading-6 md:py-5 md:mb-5 mb-3'>
           Some images currently in use on our website do not represent on-going
           operational guidelines or health and safety measures such as face
           masks and physical distancing requirements.
         </p>
 
-        <ul className='md:mb-5'>
+        <ul className='md:mb-5 mb-3'>
           {externalLinks.map((link, index) => (
             <li key={index}>
-              <p className='text-[22px] text-gray font-normal leading-[33px]'>
+              <p className='md:text-[22px] text-[15px] text-gray font-normal md:leading-[33px] leading-6'>
                 {link}
               </p>
             </li>
@@ -79,15 +92,16 @@ const TermsOfUse = () => {
         <ul>
           {termsAndConditions.map((sentence, index) => (
             <li key={index}>
-              <p className='text-[22px] text-gray font-normal leading-[33px] mb-5'>
+              <p className='md:text-[22px] text-[15px] text-gray font-normal md:leading-[33px] leading-6 mb-5'>
                 {sentence}
               </p>
             </li>
           ))}
         </ul>
       </div>
-
-      <GetInTouch />
+      <div className='md:block hidden'>
+        <GetInTouch />
+      </div>
     </section>
   );
 };

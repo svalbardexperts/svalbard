@@ -1,5 +1,5 @@
 'use client';
-import { arrowGreenUp, tripImg } from '@/constants/images';
+import { arrowGreenUp, blogImg } from '@/constants/images';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
@@ -466,24 +466,37 @@ const SingleBlog = () => {
   {
     /* TODO: replce data with blogs from database and i with blog id */
   }
-  const slicedBlogs = 'hi';
+  // const slicedBlogs = data.slice(0, sliced);
 
   return (
     <section>
       <div className='relative'>
-        <Image src={tripImg} alt='Blogs' width={15512} height={890} />
-        <div className='hidden md:w-[104px] md:h-[104px] md:grid place-content-center rounded-full bg-black bg-opacity-60 absolute top-1/3 left-12'>
+        <Image
+          src={blogImg}
+          alt='Blogs'
+          width={1512}
+          height={400}
+          className='md:block hidden w-full h-[400px]'
+        />
+        <Image
+          src={blogImg}
+          alt='Blogs'
+          width={400}
+          height={220}
+          className='md:hidden w-full h-[220px] '
+        />
+        <div className='md:w-[74px] w-[38px] md:h-[74px] h-[38px] grid place-content-center rounded-full bg-black bg-opacity-60 absolute top-1/2 md:left-12 left-3'>
           <Link href='/blog'>
-            <ChevronLeft className='text-white h-16 w-16' />
+            <ChevronLeft className='text-white md:h-12 h-8 md:w-12 w-8' />
           </Link>
         </div>
       </div>
-      <div className='md:mt-[120px]'>
-        <h3 className='custom-header'>Blog</h3>
-        <p className='custom-title md:mt-5 mt-2 md:mb-14 mb-6'>
+      <div className='md:mt-[90px] mt-14'>
+        <h3 className='custom-header md:mb-14 mb-6'>Blog</h3>
+        {/* <p className='custom-title md:mt-5 mt-2 md:mb-14 mb-6'>
           It’s easy, just leave your details here and we{' '}
-          <span className='block' /> will contact you
-        </p>
+          <span className='md:block' /> will contact you
+        </p> */}
       </div>
       <div className='md:px-[99px] px-6'>
         <div className='md:grid md:grid-cols-[1fr_400px] md:gap-[47px]'>

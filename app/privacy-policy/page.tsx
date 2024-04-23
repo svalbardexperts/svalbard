@@ -1,5 +1,6 @@
 import GetInTouch from '@/components/shared/GetInTouch';
 import { privacyPolicy } from '@/constants/images';
+import { privacyPolicyMobile } from '@/constants/mobileImages';
 import Image from 'next/image';
 import React from 'react';
 
@@ -9,13 +10,21 @@ const PrivacyPolicy = () => {
       <Image
         src={privacyPolicy}
         alt='Terms of use'
-        width={15512}
-        height={890}
+        width={1512}
+        height={400}
+        className='md:block hidden w-full h-[400px]'
       />
-      <div className='md:pt-[120px] md:px-[100px]'>
+      <Image
+        src={privacyPolicyMobile}
+        alt='Terms of use'
+        width={400}
+        height={220}
+        className='md:hidden w-full h-[220px]'
+      />
+      <div className='md:pt-[120px] pt-[60px] md:pb-0 pb-[60px] md:px-[90px] px-6'>
         <h3 className='custom-header'>Privacy Policy</h3>
-        <ul className='md:mt-14'>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+        <ul className='md:mt-14 mt-6'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               Svalbard Experts is determined to ensure the accuracy,
               confidentiality and security of the personal data the company
@@ -29,7 +38,7 @@ const PrivacyPolicy = () => {
               Experts as we or us and to customers as you. 
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               Personal data within the meaning of this policy is information
               about an identified or an identifiable person, i.e., information
@@ -38,7 +47,7 @@ const PrivacyPolicy = () => {
               personal data. 
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               In connection with our communication and collaboration with you,
               we may collect personal data about you. Different personal data
@@ -67,7 +76,7 @@ const PrivacyPolicy = () => {
               data that is essential for the company’s business.
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               Why do we collect and process personal data and on what grounds?
             </p>
@@ -109,7 +118,7 @@ const PrivacyPolicy = () => {
               purpose for which they are processed. 
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               We have made available various services, tools and functionality
               on this website for your use. This is so you can find out about
@@ -117,7 +126,7 @@ const PrivacyPolicy = () => {
               us and submit and share views with other customers.
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>Disclosure to third parties</p>
             <p>
               Svalbard Experts may disclose your personal data to contractors,
@@ -127,7 +136,7 @@ const PrivacyPolicy = () => {
               service providers of trips that we book on your behalf. 
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               Svalbard Experts endeavors to take appropriate technical and
               organizational measures to protect the safety of your personal
@@ -139,7 +148,7 @@ const PrivacyPolicy = () => {
               personal data.
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               Svalbard Experts will endeavor to retain your personal data only
               for as long as necessary for the purpose of the processing, unless
@@ -150,7 +159,7 @@ const PrivacyPolicy = () => {
               Svalbard Experts Data Retention Policy.
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               You should review these regularly to ensure you are familiar with
               the most up to date version. Browsing and continuing to access or
@@ -158,7 +167,7 @@ const PrivacyPolicy = () => {
               and conditions.
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               You are entitled to request access to the personal data we process
               on you and information on the processing. You may also be entitled
@@ -190,7 +199,7 @@ const PrivacyPolicy = () => {
               personal data for direct marketing purposes is unconditional. 
             </p>
           </li>
-          <li className='md:mb-5 text-gray text-[22px] leading-[33px] font-normal'>
+          <li className='md:mb-5 mb-3 text-gray md:text-[22px] text-[15px] md:leading-[33px] leading-6 font-normal'>
             <p>
               Svalbard Experts reserves the right to review this policy in
               accordance with changes to applicable legislation or regulations
@@ -206,7 +215,9 @@ const PrivacyPolicy = () => {
           </li>
         </ul>
       </div>
-      <GetInTouch />
+      <div className='md:block hidden'>
+        <GetInTouch />
+      </div>
     </section>
   );
 };
