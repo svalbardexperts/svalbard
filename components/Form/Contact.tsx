@@ -63,7 +63,7 @@ export function Contact() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...values, ip, countryCode }),
+      body: JSON.stringify({ ...values }),
     });
   }
   return (
