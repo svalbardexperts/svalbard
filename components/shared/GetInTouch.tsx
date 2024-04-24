@@ -4,6 +4,7 @@ import React from 'react';
 import { Contact } from '../Form/Contact';
 import { getInTouchImgMobile } from '@/constants/mobileImages';
 
+
 const GetInTouch = () => {
   return (
     <section className='md:py-[120px] py-[60px] md:px-[100px] px-6'>

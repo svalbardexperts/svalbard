@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useEffect, useState } from 'react';
+import { getAccessToken,setAccessToken } from '@/lib/auth';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -55,12 +56,57 @@ export function Contact() {
       phone: '',
     },
   });
+ async function reFetchToken(){
+    const refreshToken =await fetch('https://accounts.zoho.eu/oauth/v2/token', {  
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({
+        client_id:process.env.CLIENT_ID,
+        client_secret:process.env.CLIENT_SECRET,
+        refresh_token:process.env.REFRESH_TOKEN,
+        grant_type:'refresh_token'
+      }),
+    });
 
+    const refreshData = await refreshToken.json();  
+    console.log(refreshData);
+    setAccessToken(refreshData.access_token);
+  }
+
+  async function saveContact(name:string,email:string,phone:string){
+    const response = await fetch('https://www.zohoapis.eu/bigin/v2/Contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${getAccessToken()}`,
+      },
+      body: JSON.stringify({
+        data: {
+          'Name': name,
+          'Email': email,
+          'PhoneNo': phone,
+          $related_module: 'Contacts',
+          Remind_At: {
+            ALARM: 'FREQ=NONE;ACTION=EMAIL;TRIGGER=DATE-TIME:2019-01-25T17:09:00+05:30',
+          },
+        },
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    if (!response.ok) {
+     await reFetchToken();
+     await saveContact(name,email,phone);
+    }
+  }
   // Output of the form
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(ip);
     console.log(countryCode);
     console.log(values);
+    await saveContact(values.name,values.email,values.phone);
   }
 
   return (
