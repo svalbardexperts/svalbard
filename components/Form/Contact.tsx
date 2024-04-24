@@ -33,12 +33,12 @@ export function Contact() {
   const [ip, setIp] = useState('');
   const [countryCode, setCountryCode] = useState('');
 
+  // API for IP address for form flag.
   useEffect(() => {
     const fetchIp = async () => {
       const response = await fetch('https://freeipapi.com/api/json');
       if (response.ok) {
         const country = await response.json();
-        console.log(country);
         setCountryCode(country.countryCode.toLowerCase());
       } else {
         throw new Error('Failed to fetch IP address');
@@ -68,7 +68,7 @@ export function Contact() {
     const data=await response.json();
     if(response.ok){
       alert('Form submitted successfully');
-    }
+  }
 
   }
   return (

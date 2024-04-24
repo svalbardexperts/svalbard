@@ -5,27 +5,30 @@ import React from 'react';
 import { Button } from '../ui/button';
 import { Contact } from '../Form/Contact';
 import Modal from '../ui/modal';
-// import video from '../../public/video/video.webm';
 
 const HomeBanner = () => {
   return (
     <section className='rounded-b-lg overflow-hidden relative z-20'>
       {/* Hero section */}
-      <div className='relative w-full md:h-[920px] h-[450px] bg-[#1C201F]'>
-        <div className='relative w-[1800px] md:block hidden'>
+      <div className='relative w-full md:h-[920px] h-[450px] md:bg-video-image bg-video-image-mobile bg-no-repeat bg-center bg-cover'>
+        <div className='relative w-[1900px] md:block hidden'>
           <video
             autoPlay
             muted
             loop
+            playsInline
+            poster='../public/assets/images/video-img.jpg'
             src={require('../../public/video/video.mp4')}
           ></video>
         </div>
 
-        <div className='relative w-[800px] md:hidden '>
+        <div className='relative w-[600px] md:hidden'>
           <video
             autoPlay
             muted
             loop
+            playsInline
+            poster='../public/assets/mobile-images/video-img-mobile.jpg'
             src={require('../../public/video/video-mobile.mp4')}
           ></video>
         </div>
@@ -79,7 +82,7 @@ const HomeBanner = () => {
             Want to travel with us ?
           </h3>
           <p className='text-[15px] text-center text-gray font-normal mt-[6px] mb-6'>
-            Leave your contact information below and and one of our experts will
+            Leave your contact information below and one of our experts will
             contact you soon!
           </p>
           <Contact />

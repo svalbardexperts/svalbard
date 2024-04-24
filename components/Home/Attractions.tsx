@@ -258,25 +258,25 @@ function AttractionsSlides() {
                   {item.text}
                 </p>
 
-                <button
-                  className='gap-2 w-[130px] py-1 pl-3 pr-1 bg-base flex items-center justify-between rounded-sm'
-                  style={{
-                    boxShadow: '0px 4.01px 10.54px 0px #00000040',
-                  }}
-                >
-                  <Modal>
+                <Modal>
+                  <button
+                    className='gap-2 w-[130px] py-1 pl-3 pr-1 bg-base flex items-center justify-between rounded-sm'
+                    style={{
+                      boxShadow: '0px 4.01px 10.54px 0px #00000040',
+                    }}
+                  >
                     <span className='text-[12px] leading-[24px] text-white'>
                       Book now
                     </span>
-                  </Modal>
-                  <span className='w-7 h-7 rounded-[5px] grid place-content-center bg-white'>
-                    <Image
-                      src={arrowGreenUp}
-                      alt='Book now'
-                      className='scale-75'
-                    />
-                  </span>
-                </button>
+                    <span className='w-7 h-7 rounded-[5px] grid place-content-center bg-white'>
+                      <Image
+                        src={arrowGreenUp}
+                        alt='Book now'
+                        className='scale-75'
+                      />
+                    </span>
+                  </button>
+                </Modal>
               </div>
             </div>
           </Card>
@@ -285,7 +285,7 @@ function AttractionsSlides() {
         <div className='mt-8 w-full flex justify-center'>
           {sliced < data.length ? (
             <button
-              className='w-[125px] h-[36px] rounded-sm p-2 pl-3 flex items-center justify-between gap-3 bg-primaryText'
+              className='w-[125px] rounded-sm p-2 pl-3 flex items-center justify-between gap-3 bg-primaryText'
               style={{
                 boxShadow: '0px 2px 8px 0px #00000026',
               }}

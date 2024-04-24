@@ -52,7 +52,7 @@ const ContactBanner = () => {
             Call us
           </h4>
           <p className='md:text-lg text-[13px] text-[#707477E] font-normal md:leading-7 leading-[20px] text-center md:mb-[26px] mb-3'>
-            Our phone support is open from 24/7. You are welcome to contact us
+            Our phone support is open 24/7. You are welcome to contact us
             anytime.
           </p>
           <a
