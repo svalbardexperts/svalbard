@@ -58,13 +58,18 @@ export function Contact() {
 
   // Output of the form
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await fetch('https://13.50.238.74/api/contact', {
+    const response=await fetch('http://13.50.238.74/api/contact/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...values }),
     });
+    const data=await response.json();
+    if(response.ok){
+      alert('Form submitted successfully');
+    }
+
   }
   return (
     <Form {...form}>
