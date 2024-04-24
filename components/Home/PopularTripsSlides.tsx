@@ -1,8 +1,6 @@
-"use client";
 import * as React from 'react';
 
 import { Card, CardContent } from '@/components/ui/card';
-
 import {
   Carousel,
   CarouselContent,
@@ -28,7 +26,6 @@ import {
   tripsImg3Mobile,
   tripsImg4Mobile,
 } from '@/constants/mobileImages';
-
 
 const trips = [
   {
@@ -76,29 +73,7 @@ const mobileTrips = [
   },
 ];
 
-
-
-
 export function PopularTripsSlides() {
-  const [blogs, setBlogs] = React.useState([]);
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page=1");
-        const data = await response.json();
-        setBlogs(data.data.split(0, 4));
-        return data.data;
-      } catch (err) {
-        throw new Error("Error fetching blogs");
-      }
-      // const data = await getBlogs();
-      // setBlogs(data);
-    };
-    fetchData();
-  }, []);
-
-
   return (
     <>
       <Carousel
@@ -108,7 +83,7 @@ export function PopularTripsSlides() {
         className='md:block hidden w-full '
       >
         <CarouselContent>
-          {blogs.map((trip, index) => (
+          {trips.map((trip, index) => (
             <CarouselItem key={index} className='md:basis-1/4'>
               <Card className='h-[440px] bg-transparent relative flex items-center justify-center mx-[6px]'>
                 <CardContent className='flex flex-col aspect-square items-center justify-center absolute top-0  z-20'>
@@ -126,8 +101,8 @@ export function PopularTripsSlides() {
                     />
                   </div>
                   <div className='w-[252px] h-[280px] -translate-y-7'>
-                    <img
-                      src={'https://svalbardexperts.com/api/storyImages/' + trip?.image}
+                    <Image
+                      src={trip.img}
                       alt={trip.title}
                       width={252}
                       height={280}
@@ -167,7 +142,7 @@ export function PopularTripsSlides() {
 
       {/* Mobile view content*/}
       <div className='md:hidden w-full grid grid-cols-2 gap-x-[6px] gap-y-[24px] mt-8'>
-        {blogs.map((trip, index) => (
+        {mobileTrips.map((trip, index) => (
           <Card
             key={index}
             className='h-[285px] w-full bg-transparent relative flex items-center justify-center mx-[6px]'
@@ -182,8 +157,8 @@ export function PopularTripsSlides() {
                 <Image src={arrowWhiteUp} width={9} height={9} alt='Arrow' />
               </div>
               <div className='w-[150px] h-[170px] -translate-y-7'>
-                <img
-                  src={'https://svalbardexperts.com/api/storyImages/' + trip?.image}
+                <Image
+                  src={trip.img}
                   alt={trip.title}
                   width={160}
                   height={170}
