@@ -872,9 +872,9 @@ const BlogPage = () => {
     const fetchData = async () => {
       try {
 
-        const catresp = await fetch("http://13.50.238.74/api/story/getallcategories");
+        const catresp = await fetch("https://svalbardexperts.com/api/story/getallcategories");
         const catdata = await catresp.json();
-        const response = await fetch("http://13.50.238.74/api/story/getAllStories?search=&page=1");
+        const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page=1");
         const data = await response.json();
         setBlogs(data.data);
         setCategories(catdata.data);
@@ -1021,7 +1021,7 @@ const BlogPage = () => {
                 }}
               >
                 <img
-                  src={'http://13.50.238.74/api/storyImages/' + blog?.image}
+                  src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
                   alt={blog.title}
                   width={610}
                   height={427}
@@ -1030,7 +1030,7 @@ const BlogPage = () => {
 
                 <div className='w-full md:hidden rounded-sm h-[276px] overflow-hidden '>
                 <img
-                    src={'http://13.50.238.74/api/storyImages/' + blog?.image}
+                    src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
                     alt={blog.title}
                     width={382}
                     height={276}

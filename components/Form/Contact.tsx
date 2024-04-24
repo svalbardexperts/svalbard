@@ -58,7 +58,7 @@ export function Contact() {
 
   // Output of the form
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const response=await fetch('http://13.50.238.74/api/contact/', {
+    const response=await fetch('https://svalbardexperts.com/api/contact/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

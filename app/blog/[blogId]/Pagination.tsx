@@ -77,7 +77,7 @@ function Card({
       >
         <div className='relative'>
           <img
-            src={'http://13.50.238.74/api/storyImages/' + img}
+            src={'https://svalbardexperts.com/api/storyImages/' + img}
             alt='blog image'
             width={240}
             height={156}

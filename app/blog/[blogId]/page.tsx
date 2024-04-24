@@ -371,7 +371,7 @@ const SingleBlog = () => {
         try {
 
           //send post request
-          const response = await fetch("http://13.50.238.74/api/story/" + slug, {
+          const response = await fetch("https://svalbardexperts.com/api/story/" + slug, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -502,7 +502,7 @@ const SingleBlog = () => {
         <div className='md:grid md:grid-cols-[1fr_400px] md:gap-[47px]'>
           <div className=''>
             <img
-              src={'http://13.50.238.74/api/storyImages/' + blog?.image}
+              src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
 
               alt={blog.title}
               width={824}
@@ -510,7 +510,7 @@ const SingleBlog = () => {
               className='w-full rounded-lg md:block hidden'
             />
             <img
-              src={'http://13.50.238.74/api/storyImages/' + blog?.image}
+              src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
               alt={blog.title}
               width={380}
               height={223}
@@ -596,7 +596,7 @@ const SingleBlog = () => {
               >
                 <div className='relative'>
                   <img
-                    src={'http://13.50.238.74/api/storyImages/' + item.image}
+                    src={'https://svalbardexperts.com/api/storyImages/' + item.image}
                     alt='blog image'
                     width={416}
                     height={272}
