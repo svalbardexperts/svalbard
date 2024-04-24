@@ -87,7 +87,7 @@ export function PopularTripsSlides() {
       try {
         const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page=1");
         const data = await response.json();
-        setBlogs(data.data);
+        setBlogs(data.data.split(0, 4));
         return data.data;
       } catch (err) {
         throw new Error("Error fetching blogs");
