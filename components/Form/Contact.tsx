@@ -145,7 +145,7 @@ export function Contact() {
         />
 
         <div className='md:pt-4'>
-          <Button type='submit' variant='submit' className='md:h-[50px]'>
+          <Button onClick={() => gtag_report_conversion()} type='submit' variant='submit' className='md:h-[50px]'>
             Submit
           </Button>
         </div>
