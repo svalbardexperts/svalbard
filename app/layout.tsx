@@ -33,6 +33,18 @@ export default function RootLayout({
               })(window,document,'script','dataLayer','GTM-KD7P6SX9');`
           }}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16542328419"></script>
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16542328419');
+    `
+  }}
+/>
+        
       </head>
       <body className={poppins.className}>
 
