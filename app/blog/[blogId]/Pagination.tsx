@@ -13,12 +13,17 @@ import Link from 'next/link';
 
 interface Props {
   blogs: {
-    // id: string;
-    img: string;
-    title: string;
     description: string;
     date: string;
     category: string;
+    _id: string;
+    img: string;
+    image: string;
+    title: string;
+    content: string;
+    createdAt: string;
+    categoryname: string;
+    slug: string;
   }[];
 }
 

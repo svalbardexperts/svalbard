@@ -1,8 +1,8 @@
 'use client';
-import { arrowGreenUp, blogImg } from '@/constants/images';
+import { arrowGreenUp, blog as blogImg } from '@/constants/images';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import Link from 'next/link';
 import GetInTouch from '@/components/shared/GetInTouch';
@@ -365,7 +365,7 @@ const SingleBlog = () => {
   };
 
   const id = params.blogId;
-  useEffect(
+  useLayoutEffect(
     () => {
       const fetchBlog = async (slug) => {
         try {
