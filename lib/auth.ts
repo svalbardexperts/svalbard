@@ -6,6 +6,6 @@ export const setAccessToken = (token: string) => {
 };
 
 export const getAccessToken = () => {
-    console.log('getAccessToken', accessTokenCache);
+    // console.log('getAccessToken', accessTokenCache);
     return accessTokenCache;
 };

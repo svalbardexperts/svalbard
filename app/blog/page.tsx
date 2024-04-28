@@ -26,14 +26,12 @@ import { Contact } from '@/components/Form/Contact';
 import GetInTouch from '@/components/shared/GetInTouch';
 
 
-const BlogPage = (props) => {
-  console.log(props);
+const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('categories');
   const [blogs, setBlogs] = useState([]);
   const [sliced, setSliced] = useState(8);
   const [query, setQuery] = useState('');
   const [categories, setCategories] = useState([]);
-  console.log(categories);
   useLayoutEffect(() => {
     const fetchData = async () => {
       try {
@@ -63,14 +61,14 @@ const BlogPage = (props) => {
   };
 
   //TODO: replace the data with actual blogs data
-  const categorizedBlogs = blogs.filter((blog) => {
+  const categorizedBlogs = blogs.filter((blog:any) => {
     if (selectedCategory === 'categories') return blog;
     return blog.categoryname === selectedCategory;
   });
 
   const slicedBlogs = categorizedBlogs.slice(0, sliced);
 
-  const displayedBlogs = slicedBlogs.filter((blog) => {
+  const displayedBlogs = slicedBlogs.filter((blog:any) => {
     const blogTitle = blog.title.toLowerCase();
     const searchQuery = query.toLowerCase();
 
@@ -80,7 +78,6 @@ const BlogPage = (props) => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setQuery(e.target.value);
-    console.log(query);
   };
 
   return (
@@ -157,7 +154,7 @@ const BlogPage = (props) => {
             <DropdownMenuContent className='w-56'>
               <DropdownMenuLabel>Categories</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              {categories.map((category) => (
+              {categories.map((category:any) => (
                 <DropdownMenuCheckboxItem
                   key={category}
                   onClick={() => setSelectedCategory(category.category)}
@@ -177,7 +174,7 @@ const BlogPage = (props) => {
         <div className='md:mt-[61px] mt-6 md:px-[100px] px-6 md:space-y-10 space-y-6'>
           {
             // TODO replace index with id
-            displayedBlogs.map((blog, index) => (
+            displayedBlogs.map((blog:any, index:number) => (
               <div
                 key={index}
                 className='md:h-[430px] md:rounded-lg rounded-sm md:grid md:grid-cols-[610px_1fr] overflow-hidden'
@@ -275,20 +272,6 @@ const BlogPage = (props) => {
     </section>
   );
 };
-export const getServersideProps = async () => {
 
-  const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page=1");
-  const data = await response.json();
-  const catresp = await fetch("https://svalbardexperts.com/api/story/getallcategories");
-  const catdata = await catresp.json();
-  console.log(data);
-  console.log(catdata);
-  return {
-    props: {
-      blogs: data.data,
-      categories: catdata.data
-    }
-  }
-};
 
 export default BlogPage;
