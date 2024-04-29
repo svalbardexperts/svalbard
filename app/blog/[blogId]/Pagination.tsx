@@ -73,6 +73,8 @@ function Card({
   const blogTitle = title.split(" ").slice(0, 5).join(" ");
   const blogDescription = content.split(" ").slice(0, 20).join(" ");
   return (
+    <Link href={`/blog/${slug}`}>
+
     <div className='px-8 h-[370px]'>
       <div
         style={{
@@ -99,11 +101,9 @@ function Card({
           <div>
             {/* TODO: replace with id */}
             {/* <Link href={`/blog/${id}`}> */}
-            <Link href={`/blog/${slug}`}>
               <h3 className='text-[#017867] text-[15px] not-italic font-medium leading-[130%] text-start md:mb-4 mb-2'>
                 {blogTitle}...
               </h3>
-            </Link>
             <p className='text-gray text-[11px] font-normal leading-[160%]' dangerouslySetInnerHTML={{ __html: blogDescription }}></p>
           </div>
           <div className='md:mt-16 mt-5 flex items-center justify-between '>
@@ -117,6 +117,8 @@ function Card({
         </div>
       </div>
     </div>
+    </Link>
+
   );
 }
 
