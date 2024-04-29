@@ -71,7 +71,7 @@ function Card({
   const { _id: id, image: img, title, createdAt: date, categoryname: category, content, slug } = blog;
 
   const blogTitle = title.split(" ").slice(0, 5).join(" ");
-  const blogDescription = content;
+  const blogDescription = content.split(" ").slice(0, 20).join(" ");
   return (
     <div className='px-8 h-[370px]'>
       <div
