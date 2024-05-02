@@ -32,6 +32,7 @@ const formSchema = z.object({
 export function Contact() {
   const [ip, setIp] = useState('');
   const [countryCode, setCountryCode] = useState('');
+  const [loading, setLoading] = useState(false);
 
   // API for IP address for form flag.
   useEffect(() => {
@@ -58,17 +59,18 @@ export function Contact() {
 
   // Output of the form
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const response=await fetch('https://svalbardexperts.com/api/contact/', {
+    setLoading(true);
+    const response = await fetch('https://svalbardexperts.com/api/contact/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...values }),
     });
-    const data=await response.json();
-    if(response.ok){
+    const data = await response.json().finally(() => setLoading(false));
+    if (response.ok) {
       alert('Form submitted successfully');
-  }
+    }
 
   }
   return (
@@ -145,9 +147,10 @@ export function Contact() {
         />
 
         <div className='md:pt-4'>
-          <Button 
-          // onClick={() => gtag_report_conversion()}
-           type='submit' variant='submit' className='md:h-[50px]'>
+          <Button
+            // onClick={() => gtag_report_conversion()}
+            disabled={loading}
+            type='submit' variant='submit' className='md:h-[50px]'>
             Submit
           </Button>
         </div>
