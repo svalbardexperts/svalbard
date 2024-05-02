@@ -17,7 +17,7 @@ const HomeBanner = () => {
             muted
             loop
             playsInline
-            poster='../public/assets/images/video-img.jpg'
+            // poster='../public/assets/images/video-img.jpg'
             src={require('../../public/video/video.mp4')}
           ></video>
         </div>
@@ -28,7 +28,7 @@ const HomeBanner = () => {
             muted
             loop
             playsInline
-            poster='../public/assets/mobile-images/video-img-mobile.jpg'
+            // poster='../public/assets/mobile-images/video-img-mobile.jpg'
             src={require('../../public/video/video-mobile.mp4')}
           ></video>
         </div>
