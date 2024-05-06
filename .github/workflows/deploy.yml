@@ -2,7 +2,7 @@
   uses: actions/checkout@v2 
 - name: SSH into EC2 and deploy 
   run: | 
-  ssh -o StrictHostKeyChecking=no -i ~/.ssh/Github-Actions ubuntu@13.50.238.74 'bash -s' << 'EOF' 
+  ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF' 
     cd /var/www/html/svalbard
     git pull origin main 
     npm install # Install dependencies 
