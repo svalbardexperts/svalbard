@@ -17,12 +17,16 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
           chmod 600 ~/.ssh/github-actions
-
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.17.0'
+      - name: Verify Node.js installation
+        run: node --version
       - name: SSH into EC2 and deploy
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
             cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
-            sudo nvm alias default node  || { echo "Error: Failed to remove install node new version"; exit 1; }
             rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
             rm -rf node_modules || { echo "Error: Failed to remove node_modules directory"; exit 1; }
             npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
