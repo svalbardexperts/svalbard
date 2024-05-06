@@ -29,7 +29,7 @@ const HomeBanner = () => {
             loop
             playsInline
             // poster='../public/assets/mobile-images/video-img-mobile.jpg'
-            src={require('../../public/video/video-mobile.mp4')}
+            src={require('../../public/video/video.mp4')}
           ></video>
         </div>
       </div>

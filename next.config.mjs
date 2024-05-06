@@ -3,7 +3,7 @@
 import withVideos from 'next-videos';
 const nextConfig = {
   images: {
-    domains: ['i.postimg.cc','svalbardexperts.com/api'],
+    domains: ['i.postimg.cc','svalbardexperts.com/api','svalbardexperts.com'],
     remotePatterns: [
       {
         protocol: 'https',

@@ -20,46 +20,46 @@ import React from 'react';
 
 const data = [
   {
-    img: natureTouch1,
-    title: 'Unlocking the Arctic:',
-    path: '',
+    img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-01T06-30-58.561ZThings_to_know_before_visiting_svalbard.jpg',
+    title: 'Things to Know Before You Visit Svalbard',
+    path: 'https://svalbardexperts.com/blog/things-to-know-before-you-visit-svalbard',
   },
   {
-    img: natureTouch2,
-    title: 'Exploring the Frozen',
-    path: '',
+    img: 'https://svalbardexperts.com/api/storyImages/image_2024-04-30T07-59-49.967ZThe_Best_Things_to_Do_%20in_Svalbard.jpg',
+    title: 'The Best Things to Do in Svalbard',
+    path: 'https://svalbardexperts.com/blog/the-best-things-to-do-in-svalbard',
   },
   {
-    img: natureTouch3,
-    title: 'The Mystical Dance of',
-    path: '',
+    img: "https://svalbardexperts.com/api/storyImages/image_2024-04-28T21-15-11.046ZSvalbard's_Summer%20Symphony_of_Artic_Adventures.jpg",
+    title: "Svalbard's Summer Symphony of Arctic Adventures",
+    path: 'https://svalbardexperts.com/blog/svalbards-summer-symphony-of-arctic-adventures',
   },
   {
-    img: natureTouch4,
-    title: 'Exploring the',
-    path: '',
+    img: "https://svalbardexperts.com/api/storyImages/image_2024-04-25T20-37-10.361ZHiking.jpg",
+    title: 'Exploring the Enchanting Wilderness: Must-Visit Attractions in Svalbard',
+    path: 'https://svalbardexperts.com/blog/exploring-the-enchanting-wilderness-must-visit-attractions-in-svalbard',
   },
 ];
 
 const mobileDdata = [
   {
-    img: natureTouch1Mobile,
-    title: 'Unlocking the Arctic:',
+    img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-01T06-30-58.561ZThings_to_know_before_visiting_svalbard.jpg',
+    title: 'Things to Know Before You Visit Svalbard',
     path: '',
   },
   {
-    img: natureTouch2Mobile,
-    title: 'Exploring the Frozen',
+    img: 'https://svalbardexperts.com/api/storyImages/image_2024-04-30T07-59-49.967ZThe_Best_Things_to_Do_%20in_Svalbard.jpg',
+    title: 'The Best Things to Do in Svalbard',
     path: '',
   },
   {
-    img: natureTouch3Mobile,
-    title: 'The Mystical Dance of',
+    img: "https://svalbardexperts.com/api/storyImages/image_2024-04-28T21-15-11.046ZSvalbard's_Summer%20Symphony_of_Artic_Adventures.jpg",
+    title: "Svalbard's Summer Symphony of Arctic Adventures",
     path: '',
   },
   {
-    img: natureTouch4Mobile,
-    title: 'Exploring the',
+    img: "https://svalbardexperts.com/api/storyImages/image_2024-04-25T20-37-10.361ZHiking.jpg",
+    title: 'Exploring the Enchanting Wilderness: Must-Visit Attractions in Svalbard',
     path: '',
   },
 ];
@@ -146,7 +146,7 @@ const NatureTouchSection = () => {
                       index === 0 ? 'h-[270px]' : 'h-[184px]',
                     )}
                   >
-                    <Image
+                    <img
                       src={item.img}
                       alt={item.title}
                       height={index === 0 ? 269 : 184}
@@ -157,20 +157,21 @@ const NatureTouchSection = () => {
                           '-2px -2px 6px 0px #00000026, 2px 2px 6px 0px #00000026',
                       }}
                     />
-
-                    <div className='absolute bottom-0 left-0 right-0 glass py-[12px] px-2 h-[46px] rounded-sm flex items-center justify-between overflow-hidden'>
-                      <h3 className='text-[11px] leading-[20px] font-semibold text-white'>
-                        {item.title}
-                      </h3>
-                      <div className='w-[22px] h-[22px] rounded-[4px] grid place-content-center bg-white'>
-                        <Image
-                          src={arrowGreenUp}
-                          alt='Arrow'
-                          width={9}
-                          height={9}
-                        />
+                    <Link href={item.path} className='w-full flex justify-center'>
+                      <div className='absolute bottom-0 left-0 right-0 glass py-[12px] px-2 h-[46px] rounded-sm flex items-center justify-between overflow-hidden'>
+                        <h3 className='text-[11px] leading-[20px] font-semibold text-white'>
+                          {item.title}
+                        </h3>
+                        <div className='w-[22px] h-[22px] rounded-[4px] grid place-content-center bg-white'>
+                          <Image
+                            src={arrowGreenUp}
+                            alt='Arrow'
+                            width={9}
+                            height={9}
+                          />
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -187,7 +188,7 @@ const NatureTouchSection = () => {
                       index === 0 ? 'h-[195px]' : 'h-[258px]',
                     )}
                   >
-                    <Image
+                    <img
                       src={item.img}
                       alt={item.title}
                       height={index === 0 ? 195 : 258}
@@ -198,20 +199,21 @@ const NatureTouchSection = () => {
                           '-2px -0px 4px 0px #00000026, 2px 0px 4px 0px #00000026',
                       }}
                     />
-
-                    <div className='absolute bottom-0 left-0 right-0 glass py-[12px] px-2 h-[46px] rounded-sm flex items-center justify-between '>
-                      <h3 className='text-[11px] leading-[20px] font-semibold text-white'>
-                        {item.title}
-                      </h3>
-                      <div className='w-[22px] h-[22px] rounded-[4px] grid place-content-center bg-white'>
-                        <Image
-                          src={arrowGreenUp}
-                          alt='Arrow'
-                          width={9}
-                          height={9}
-                        />
+                    <Link href={item.path} className='w-full flex justify-center'>
+                      <div className='absolute bottom-0 left-0 right-0 glass py-[12px] px-2 h-[46px] rounded-sm flex items-center justify-between '>
+                        <h3 className='text-[11px] leading-[20px] font-semibold text-white'>
+                          {item.title}
+                        </h3>
+                        <div className='w-[22px] h-[22px] rounded-[4px] grid place-content-center bg-white'>
+                          <Image
+                            src={arrowGreenUp}
+                            alt='Arrow'
+                            width={9}
+                            height={9}
+                          />
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               ))}
