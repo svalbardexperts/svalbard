@@ -31,10 +31,10 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
             cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
             rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
-            rm -rf node_modules || { echo "Error: Failed to remove node_modules directory"; exit 1; }
+            # rm -rf node_modules || { echo "Error: Failed to remove node_modules directory"; exit 1; }
             pm2 delete "svalbard" || { echo "Error: Failed to stop pm2"; exit 1; }
             export NODE_OPTIONS="--max-old-space-size=4096"
-            npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
+            # npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
             node -v || { echo "Error: Failed to build Next.js app"; exit 1; }
             npm run build || { echo "Error: Failed to build Next.js app"; exit 1; }
             pm2 start npm --name "svalbard" -- run start || { echo "Error: Failed to start PM2 process"; exit 1; }
