@@ -1,0 +1,13 @@
+- name: Checkout code 
+  uses: actions/checkout@v2 
+- name: SSH into EC2 and deploy 
+  run: | 
+  ssh -o StrictHostKeyChecking=no -i ~/.ssh/Github-Actions ubuntu@13.50.238.74 'bash -s' << 'EOF' 
+    cd /var/www/html/svalbard
+    git pull origin main 
+    npm install # Install dependencies 
+    npm run build # Build Next.js app 
+    pm2 stop all # Stop all existing PM2 processes 
+    pm2 start next --name "svalbard" -- start 
+    sudo systemctl restart nginx 
+  EOF
