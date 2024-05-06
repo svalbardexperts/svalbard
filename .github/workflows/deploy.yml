@@ -22,6 +22,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
             cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
+            sudo nvm alias default node  || { echo "Error: Failed to remove install node new version"; exit 1; }
             rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
             rm -rf node_modules || { echo "Error: Failed to remove node_modules directory"; exit 1; }
             npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
