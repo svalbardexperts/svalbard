@@ -1,14 +1,25 @@
-- name: Checkout code
-  uses: actions/checkout@v2
+name: Deploy to EC2
 
-- name: SSH into EC2 and deploy
-  run: |
-    ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
-      cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
-      git pull origin main || { echo "Error: Failed to pull from Git repository"; exit 1; }
-      npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
-      npm run build || { echo "Error: Failed to build Next.js app"; exit 1; }
-      pm2 stop all || { echo "Error: Failed to stop PM2 processes"; exit 1; }
-      pm2 start next --name "svalbard" -- start || { echo "Error: Failed to start PM2 process"; exit 1; }
-      sudo systemctl restart nginx || { echo "Error: Failed to restart Nginx"; exit 1; }
-    EOF
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SSH into EC2 and deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
+            cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
+            git pull origin main || { echo "Error: Failed to pull from Git repository"; exit 1; }
+            npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
+            npm run build || { echo "Error: Failed to build Next.js app"; exit 1; }
+            pm2 stop all || { echo "Error: Failed to stop PM2 processes"; exit 1; }
+            pm2 start next --name "svalbard" -- start || { echo "Error: Failed to start PM2 process"; exit 1; }
+            sudo systemctl restart nginx || { echo "Error: Failed to restart Nginx"; exit 1; }
+          EOF
