@@ -18,7 +18,7 @@ jobs:
           chmod 600 ~/.ssh/github-actions
       - name: SSH into EC2 and deploy
         run: |
-         ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'sudo bash -s'
+         ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'sudo su -'
             cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
             sudo rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
             sudo rm -rf node_modules || { echo "Error: Failed to remove modules directory"; exit 1; }
