@@ -11,20 +11,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: 18.17.0      
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
           chmod 600 ~/.ssh/github-actions
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.17.0'
-
       - name: SSH into EC2 and deploy
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
@@ -32,6 +23,7 @@ jobs:
             rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
             rm -rf node_modules || { echo "Error: Failed to remove modules directory"; exit 1; }
             which node || { echo "Error: Failed to tell node directory"; exit 1; }
+            npm i -g semver || { echo "Error: Failed to tell semver directory"; exit 1; }
             export NODE_OPTIONS="--max-old-space-size=4096"
             node -v || { echo "Error: Failed to install Node.js version 18.17.0"; exit 1; }
             npm install --force || { echo "Error: Failed to install npm dependencies"; exit 1; }
