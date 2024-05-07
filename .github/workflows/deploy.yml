@@ -11,26 +11,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
           chmod 600 ~/.ssh/github-actions
+
       - name: SSH into EC2 and deploy
         run: |
-         ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 << 'EOF'
-         sudo su -
-         cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
-         sudo rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
-         sudo rm -rf node_modules || { echo "Error: Failed to remove modules directory"; exit 1; }
-         sudo npm uninstall -g npm || { echo "Error: Failed to tell node directory"; exit 1; }
-         sudo apt update || { echo "Error: Failed to tell node directory"; exit 1; }
-         sudo apt install npm || { echo "Error: Failed to tell node directory"; exit 1; }
-         npm --version || { echo "Error: Failed to tell semver directory"; exit 1; }
-         export NODE_OPTIONS="--max-old-space-size=4096"
-         node -v || { echo "Error: Failed to install Node.js version 18.17.0"; exit 1; }
-         npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
-         npm run build || { echo "Error: Failed to build Next.js app"; exit 1; }
-         # pm2 start npm --name "svalbard" -- run start || { echo "Error: Failed to start PM2 process"; exit 1; }
-         # sudo systemctl restart nginx || { echo "Error: Failed to restart Nginx"; exit 1; }
-         EOF
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
+            cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
+            rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
+            rm -rf node_modules || { echo "Error: Failed to remove .next directory"; exit 1; }
+            export NODE_OPTIONS="--max-old-space-size=4096"
+            # Install Node.js version 18.17.0
+            # curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+            # sudo apt-get install -y nodejs
+            node -v || { echo "Error: Failed to install Node.js version 18.17.0"; exit 1; }
+            npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
+            npm run build || { echo "Error: Failed to build Next.js app"; exit 1; }
+            pm2 start npm --name "svalbard" -- run start || { echo "Error: Failed to start PM2 process"; exit 1; }
+            sudo systemctl restart nginx || { echo "Error: Failed to restart Nginx"; exit 1; }
+          EOF
