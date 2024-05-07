@@ -41,7 +41,7 @@ const HomeTrips = () => {
       <div className='md:hidden pt-6 px-[30px]'>
         <div
           className='min-h-[400px] w-full rounded-sm
-         bg-white mx-auto p-6'
+         bg-white mx-auto p-6 form-main-for-mobile'
           style={{
             boxShadow: '0.74px 0px 20px 2.22px #3131311A',
           }}

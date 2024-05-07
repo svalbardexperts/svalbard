@@ -31,12 +31,12 @@ const data = [
   },
   {
     img: "https://svalbardexperts.com/api/storyImages/image_2024-04-28T21-15-11.046ZSvalbard's_Summer%20Symphony_of_Artic_Adventures.jpg",
-    title: "Svalbard's Summer Symphony of Arctic Adventures",
+    title: "Svalbard's Arctic Adventures",
     path: 'https://svalbardexperts.com/blog/svalbards-summer-symphony-of-arctic-adventures',
   },
   {
     img: "https://svalbardexperts.com/api/storyImages/image_2024-04-25T20-37-10.361ZHiking.jpg",
-    title: 'Exploring the Enchanting Wilderness: Must-Visit Attractions in Svalbard',
+    title: 'Enchanting Wilderness of Svalbard',
     path: 'https://svalbardexperts.com/blog/exploring-the-enchanting-wilderness-must-visit-attractions-in-svalbard',
   },
 ];
@@ -45,22 +45,22 @@ const mobileDdata = [
   {
     img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-01T06-30-58.561ZThings_to_know_before_visiting_svalbard.jpg',
     title: 'Things to Know Before You Visit Svalbard',
-    path: '',
+    path: 'https://svalbardexperts.com/blog/things-to-know-before-you-visit-svalbard',
   },
   {
     img: 'https://svalbardexperts.com/api/storyImages/image_2024-04-30T07-59-49.967ZThe_Best_Things_to_Do_%20in_Svalbard.jpg',
     title: 'The Best Things to Do in Svalbard',
-    path: '',
+    path: 'https://svalbardexperts.com/blog/the-best-things-to-do-in-svalbard',
   },
   {
     img: "https://svalbardexperts.com/api/storyImages/image_2024-04-28T21-15-11.046ZSvalbard's_Summer%20Symphony_of_Artic_Adventures.jpg",
-    title: "Svalbard's Summer Symphony of Arctic Adventures",
-    path: '',
+    title: "Svalbard's Arctic Adventures",
+    path: 'https://svalbardexperts.com/blog/svalbards-summer-symphony-of-arctic-adventures',
   },
   {
     img: "https://svalbardexperts.com/api/storyImages/image_2024-04-25T20-37-10.361ZHiking.jpg",
-    title: 'Exploring the Enchanting Wilderness: Must-Visit Attractions in Svalbard',
-    path: '',
+    title: 'Enchanting Wilderness of Svalbard',
+    path: 'https://svalbardexperts.com/blog/exploring-the-enchanting-wilderness-must-visit-attractions-in-svalbard',
   },
 ];
 

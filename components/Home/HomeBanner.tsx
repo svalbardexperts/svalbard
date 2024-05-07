@@ -11,7 +11,7 @@ const HomeBanner = () => {
     <section className='rounded-b-lg overflow-hidden relative z-20'>
       {/* Hero section */}
       <div className='relative w-full md:h-[920px] h-[450px] md:bg-video-image bg-video-image-mobile bg-no-repeat bg-center bg-cover'>
-        <div className='relative w-[1900px] md:block hidden'>
+        <div className='relative w-[1920px] md:block hidden'>
           <video
             autoPlay
             muted
@@ -22,7 +22,24 @@ const HomeBanner = () => {
           ></video>
         </div>
 
-        <div className='relative w-[600px] md:hidden'>
+
+
+        <div className='relative w-[802px] md:hidden'>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-auto"
+    // poster='../public/assets/mobile-images/video-img-mobile.jpg'
+    src={require('../../public/video/video.mp4')}
+  ></video>
+</div>
+
+
+
+
+        {/* <div className='relative w-[767px] md:hidden'>
           <video
             autoPlay
             muted
@@ -31,7 +48,7 @@ const HomeBanner = () => {
             // poster='../public/assets/mobile-images/video-img-mobile.jpg'
             src={require('../../public/video/video.mp4')}
           ></video>
-        </div>
+        </div> */}
       </div>
 
       {/* Form section */}
@@ -48,7 +65,7 @@ const HomeBanner = () => {
           </p>
           {/* buttons group */}
           <div className='flex items-center md:justify-start justify-center md:gap-5 gap-[10px] md:mt-0 mt-8'>
-            <Modal>
+            {/* <Modal>
               <Button variant='primary' size='md'>
                 Get a quote
                 <span className='flex items-center justify-center bg-base md:w-[52px] w-[28px] md:h-[52px] h-[28px] md:rounded-md rounded-[5px]'>
@@ -59,7 +76,7 @@ const HomeBanner = () => {
                     height={27}
                     className='md:block hidden'
                   />
-                  {/* mobile view image */}
+                  { mobile view image }
                   <Image
                     src={arrowWhiteUp}
                     alt='Arrow'
@@ -69,7 +86,7 @@ const HomeBanner = () => {
                   />
                 </span>
               </Button>
-            </Modal>
+            </Modal> */}
           </div>
         </div>
 
