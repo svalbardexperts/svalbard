@@ -23,6 +23,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
             cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
             # rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
+            which node || { echo "Error: Failed to tell node directory"; exit 1; }
             export NODE_OPTIONS="--max-old-space-size=4096"
             # Install Node.js version 18.17.0
             # curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
