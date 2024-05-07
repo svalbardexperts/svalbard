@@ -26,9 +26,9 @@ jobs:
             export NODE_OPTIONS="--max-old-space-size=4096"
             # Install Node.js version 18.17.0
             # curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-            # sudo apt-get install -y nodejs
+            sudo apt-get install -y nodejs
             node -v || { echo "Error: Failed to install Node.js version 18.17.0"; exit 1; }
-            # npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
+            npm install || { echo "Error: Failed to install npm dependencies"; exit 1; }
             npm run build || { echo "Error: Failed to build Next.js app"; exit 1; }
             # pm2 start npm --name "svalbard" -- run start || { echo "Error: Failed to start PM2 process"; exit 1; }
             # sudo systemctl restart nginx || { echo "Error: Failed to restart Nginx"; exit 1; }
