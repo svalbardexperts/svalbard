@@ -23,7 +23,7 @@ jobs:
             rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
             rm -rf node_modules || { echo "Error: Failed to remove modules directory"; exit 1; }
             which node || { echo "Error: Failed to tell node directory"; exit 1; }
-            npm i -g semver || { echo "Error: Failed to tell semver directory"; exit 1; }
+            npm install node -g || { echo "Error: Failed to tell semver directory"; exit 1; }
             export NODE_OPTIONS="--max-old-space-size=4096"
             node -v || { echo "Error: Failed to install Node.js version 18.17.0"; exit 1; }
             npm install --force || { echo "Error: Failed to install npm dependencies"; exit 1; }
