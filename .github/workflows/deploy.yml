@@ -22,6 +22,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/github-actions ubuntu@13.50.238.74 'bash -s' << 'EOF'
             cd /var/www/html/svalbard || { echo "Error: Failed to change directory"; exit 1; }
+            git pull || { echo "Error: Failed to pull"; exit 1; }
             rm -rf .next || { echo "Error: Failed to remove .next directory"; exit 1; }
             rm -rf node_modules || { echo "Error: Failed to remove .next directory"; exit 1; }
             export NODE_OPTIONS="--max-old-space-size=4096"
