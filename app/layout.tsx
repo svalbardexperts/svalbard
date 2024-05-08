@@ -37,7 +37,7 @@ export default function RootLayout({
         
 
 
-<script
+{/* <script
   dangerouslySetInnerHTML={{
     __html: `
     (function(w,d,s,l,i){
@@ -58,7 +58,7 @@ export default function RootLayout({
     gtag('config', 'AW-16542328419');
     `
   }}
-/>
+/> */}
 
       </head>
       <body className={poppins.className}>

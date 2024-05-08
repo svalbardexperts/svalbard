@@ -154,7 +154,10 @@
 @media only screen and (max-width: 767px) {
 .form-main-for-mobile{
   margin-top: -100px;
-  z-index: 99;
+  z-index: 90;
   position: relative;
+}
+.dialog-z{
+  z-index: 100;
 }
 }
