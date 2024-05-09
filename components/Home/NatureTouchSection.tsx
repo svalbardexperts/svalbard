@@ -36,7 +36,7 @@ const data = [
   },
   {
     img: "https://svalbardexperts.com/api/storyImages/image_2024-04-25T20-37-10.361ZHiking.jpg",
-    title: 'Enchanting Wilderness of Svalbard',
+    title: "The Wilderness of Svalbard",
     path: 'https://svalbardexperts.com/blog/exploring-the-enchanting-wilderness-must-visit-attractions-in-svalbard',
   },
 ];
