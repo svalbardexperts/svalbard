@@ -71,7 +71,9 @@ export function Contact() {
     if (response.ok) {
       alert('Form submitted successfully');
     }
-
+    else {
+      alert('Form already submitted');
+    }
   }
   return (
     <Form {...form}>
