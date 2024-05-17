@@ -20,9 +20,9 @@ import React from 'react';
 
 const data = [
   {
-    img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-01T06-30-58.561ZThings_to_know_before_visiting_svalbard.jpg',
-    title: 'Things to Know Before You Visit Svalbard',
-    path: 'https://svalbardexperts.com/blog/things-to-know-before-you-visit-svalbard',
+    img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-10T21-07-07.281Zanimal_svalbard.jpg',
+    title: "Arctic's Extraordinary Landscapes and Animals",
+    path: 'https://svalbardexperts.com/blog/discovering-the-arctics-extraordinary-landscapes-and-animals',
   },
   {
     img: 'https://svalbardexperts.com/api/storyImages/image_2024-04-30T07-59-49.967ZThe_Best_Things_to_Do_%20in_Svalbard.jpg',
@@ -43,9 +43,9 @@ const data = [
 
 const mobileDdata = [
   {
-    img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-01T06-30-58.561ZThings_to_know_before_visiting_svalbard.jpg',
-    title: 'Things to Know Before You Visit Svalbard',
-    path: 'https://svalbardexperts.com/blog/things-to-know-before-you-visit-svalbard',
+    img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-10T21-07-07.281Zanimal_svalbard.jpg',
+    title: "Arctic's Extraordinary Landscapes and Animals",
+    path: 'https://svalbardexperts.com/blog/discovering-the-arctics-extraordinary-landscapes-and-animals',
   },
   {
     img: 'https://svalbardexperts.com/api/storyImages/image_2024-04-30T07-59-49.967ZThe_Best_Things_to_Do_%20in_Svalbard.jpg',
