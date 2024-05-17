@@ -21,7 +21,7 @@ import React from 'react';
 const data = [
   {
     img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-10T21-07-07.281Zanimal_svalbard.jpg',
-    title: "Arctic's Extraordinary Landscapes and Animals",
+    title: "Arctic's Landscapes and Animals",
     path: 'https://svalbardexperts.com/blog/discovering-the-arctics-extraordinary-landscapes-and-animals',
   },
   {
@@ -44,7 +44,7 @@ const data = [
 const mobileDdata = [
   {
     img: 'https://svalbardexperts.com/api/storyImages/image_2024-05-10T21-07-07.281Zanimal_svalbard.jpg',
-    title: "Arctic's Extraordinary Landscapes and Animals",
+    title: "Arctic's Landscapes and Animals",
     path: 'https://svalbardexperts.com/blog/discovering-the-arctics-extraordinary-landscapes-and-animals',
   },
   {

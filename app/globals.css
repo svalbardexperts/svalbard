@@ -160,4 +160,7 @@
 .dialog-z{
   z-index: 100;
 }
+.custom-z-index-nav{
+  z-index: 103;
+}
 }

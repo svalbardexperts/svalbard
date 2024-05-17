@@ -23,7 +23,7 @@ const Header = () => {
   const [title, setTitle] = useState('home');
 
   return (
-    <nav className='fixed left-0 top-0 w-full z-50'>
+    <nav className='fixed left-0 top-0 w-full z-50 custom-z-index-nav'>
       <DesktopViewNav title={title} setTitle={setTitle} />
       <ResponsiveNav title={title} setTitle={setTitle} />
     </nav>
