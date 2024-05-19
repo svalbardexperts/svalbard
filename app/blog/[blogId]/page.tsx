@@ -8,7 +8,7 @@ import GetInTouch from '@/components/shared/GetInTouch';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
 import BlogSlider from './Pagination';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 
 const SingleBlog = () => {
@@ -55,14 +55,14 @@ const SingleBlog = () => {
   return (
     <section>
       <div className='relative'>
-        <Image
+        <NextImage
           src={blogImg}
           alt='Blogs'
           width={1512}
           height={400}
           className='md:block hidden w-full h-[400px]'
         />
-        <Image
+        <NextImage
           src={blogImg}
           alt='Blogs'
           width={400}
@@ -195,7 +195,7 @@ const SingleBlog = () => {
                     Show less
                   </span>
                   <span className='w-10 h-10 rounded-sm grid place-content-center bg-white'>
-                    <Image src={arrowGreenUp} alt='Book now' />
+                    <NextImage src={arrowGreenUp} alt='Book now' />
                   </span>
                 </Button>
               ) : (
@@ -207,7 +207,7 @@ const SingleBlog = () => {
                     More posts
                   </span>
                   <span className='w-10 h-10 rounded-sm grid place-content-center bg-white'>
-                    <Image src={arrowGreenUp} alt='Book now' />
+                    <NextImage src={arrowGreenUp} alt='Book now' />
                   </span>
                 </Button>
               )}
