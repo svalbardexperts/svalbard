@@ -17,6 +17,7 @@ const SingleBlog = () => {
   const [sliced, setSliced] = useState(10);
   const [blog, setBlog] = useState<any>({});
   const [relatedBlogs, setRelatedBlogs] = useState<any>([]);
+  const [imageloaded, setImageloaded] = useState(false);
 
   const handleTagged = () => {
     setTagged(!tagged);
@@ -25,7 +26,7 @@ const SingleBlog = () => {
   const id = params.blogId;
   useEffect(
     () => {
-      const fetchBlog = async (slug:any) => {
+      const fetchBlog = async (slug: any) => {
         try {
           //send post request
           const response = await fetch("https://svalbardexperts.com/api/story/" + slug, {
@@ -36,9 +37,12 @@ const SingleBlog = () => {
           });
           const data = await response.json();
           setBlog(data.data);
-          if(data.data.image){
-            const img=new Image();
-            img.src='https://svalbardexperts.com/api/storyImages/' + data.data?.image;
+          if (data.data.image) {
+            const img = new Image();
+            img.src = 'https://svalbardexperts.com/api/storyImages/' + data.data?.image;
+            img.onload = () => {
+              setImageloaded(true);
+            };
           }
           setRelatedBlogs(data.relatedStories);
           return data;
@@ -82,25 +86,44 @@ const SingleBlog = () => {
           <span className='md:block' /> will contact you
         </p> */}
       </div>
+
+
+
+
+
       <div className='md:px-[99px] px-6'>
         <div className='md:grid md:grid-cols-[1fr_400px] md:gap-[47px]'>
           <div className=''>
-            <img
-              src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
+            {!imageloaded ? (
+              <div role="status" className=" animate-pulse w-full rounded-lg md:block hidden">
+                <div className="flex items-center justify-center w-full bg-gray-300 rounded dark:bg-gray-700"
+                  style={{
+                    height: '462px',
+                    boxShadow: '4px 4px 12px 0px rgba(0, 0, 0, 0.15)',
+                    background: 'linear-gradient(90deg, #E0E0E0 0%, #F5F5F5 50%, #E0E0E0 100%)'
+                  }}>
+                  <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                    <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+                  </svg>
+                </div>
+              </div>
+            ) : <>
+              <img
+                src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
 
-              alt={blog.title}
-              width={824}
-              height={462}
-              className={`w-full rounded-lg md:block hidden ${blog?.image ? 'block' : 'hidden'}`}
-            />
-            <img
-              src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
-              alt={blog.title}
-              width={380}
-              height={223}
-              className='w-full rounded-xl md:hidden'
-            />
-
+                alt={blog.title}
+                width={824}
+                height={462}
+                className={`w-full rounded-lg md:block hidden`}
+              />
+              <img
+                src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
+                alt={blog.title}
+                width={380}
+                height={223}
+                className='w-full rounded-xl md:hidden'
+              />
+            </>}
             <div
               className='md:mt-10 mt-[13px] pb-1 md:pl-0 pl-4 md:pr-0 pr-[13px]'
               style={{
@@ -137,7 +160,7 @@ const SingleBlog = () => {
 
           {/* blogs */}
           <div className='md:grid hidden gap-[31px] h-max'>
-            {relatedBlogs.map((item:any, i:number) => (
+            {relatedBlogs.map((item: any, i: number) => (
               <div
                 style={{
                   boxShadow: '4px 4px 12px 0px rgba(0, 0, 0, 0.15)',
@@ -201,7 +224,7 @@ const SingleBlog = () => {
               ) : (
                 <Button
                   variant='paginate'
-                  // onClick={() => handleMorePosts}
+                // onClick={() => handleMorePosts}
                 >
                   <span className='text-lg leading-7 text-white'>
                     More posts
