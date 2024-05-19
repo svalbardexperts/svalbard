@@ -1,6 +1,5 @@
 'use client';
 import { arrowGreenUp, blog as blogImg } from '@/constants/images';
-import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
@@ -9,6 +8,8 @@ import GetInTouch from '@/components/shared/GetInTouch';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
 import BlogSlider from './Pagination';
+import Image from 'next/image';
+
 
 const SingleBlog = () => {
   const params = useParams();
@@ -35,6 +36,10 @@ const SingleBlog = () => {
           });
           const data = await response.json();
           setBlog(data.data);
+          if(data.data.image){
+            const img=new Image();
+            img.src='https://svalbardexperts.com/api/storyImages/' + data.data?.image;
+          }
           setRelatedBlogs(data.relatedStories);
           return data;
         } catch (err) {
@@ -46,85 +51,6 @@ const SingleBlog = () => {
       }
     }, [id]
   );
-
-  // if (!blog.title) {
-    // return null;
-  // }
-
-  // TODO; replace this single data with actual one from database
-  // const data = {
-  //   img: 'https://i.postimg.cc/SNk7PcPq/1.jpg',
-  //   title: 'The Best Things to Do in Svalbard',
-  //   category: 'category 1',
-  //   description:
-  //     'Svalbard, an archipelago situated in the Arctic Ocean, is a place of rugged beauty and pristine wilderness. Despite its remote location and extreme weather conditions, Svalbard offers a plethora of activities and attractions that cater to adventurers, nature enthusiasts, and curious travelers alike. From witnessing breathtaking landscapes to encountering unique wildlife, here are some of the best things to do in Svalbard',
-  //   date: 'May 28, 2021 10:25:00 UTC',
-  //   activities: [
-  //     {
-  //       activityImg: 'https://i.postimg.cc/0Nk7WvXf/1-1.jpg',
-  //       activityTitle: 'Polar Bear Spotting',
-  //       activityDescription: [
-  //         'Svalbard is home to one of the largest populations of polar bears on Earth. One of the most thrilling experiences you can have in Svalbard is embarking on a polar bear spotting expedition. Experienced guides lead excursions into the wilderness, where you can observe these majestic creatures in their natural habitat, albeit from a safe distance.',
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/0Nk7WvXf/1-2.jpg',
-  //       activityTitle: 'Arctic Wildlife Safaris',
-  //       activityDescription: [
-  //         'Beyond polar bears, Svalbard is teeming with diverse wildlife. Embark on a wildlife safari to spot reindeer, Arctic foxes, seals, walruses, and various bird species including puffins and kittiwakes. The unique ecosystem of Svalbard offers unparalleled opportunities for wildlife enthusiasts and photographers.',
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/7h3vZS1w/4.png',
-  //       activityTitle: 'Witnessing the Northern Lights',
-  //       activityDescription: [
-  //         'Svalbard is one of the best places on Earth to witness the mesmerizing spectacle of the Northern Lights. From late autumn to early spring, the Arctic skies come alive with vibrant hues of green, pink, and purple. Venture outside the settlements, away from artificial light pollution, for the best chance to witness this celestial phenomenon.',
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/7h3vZS1w/4.png',
-  //       activityTitle: 'Dog Sledding Adventures',
-  //       activityDescription: [
-  //         'Embrace the Arctic tradition of dog sledding by embarking on a thrilling sled ride through the snowy wilderness. Feel the exhilaration as a team of energetic huskies pulls you across the pristine landscapes of Svalbard. Dog sledding tours cater to both beginners and experienced mushers, offering a unique perspective of the Arctic terrain.',
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/zB9Hj9cD/1-5.jpg',
-  //       activityTitle: 'Exploring Longyearbyen',
-  //       activityDescription: [
-  //         "As the largest settlement in Svalbard, Longyearbyen offers a blend of modern amenities and Arctic charm. Explore the colorful streets lined with traditional Norwegian houses, visit museums such as the Svalbard Museum to learn about the archipelago's history and culture, and indulge in local cuisine at cozy restaurants and cafes.",
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/4y6y1ncw/1-6.jpg',
-  //       activityTitle: 'Arctic Kayaking and Ice Caving',
-  //       activityDescription: [
-  //         "For those seeking adventure off the beaten path, kayaking amidst icy fjords and exploring mesmerizing ice caves are unforgettable experiences in Svalbard. Paddle through crystal-clear waters while surrounded by towering glaciers and rugged cliffs, or venture into ice caves sculpted by nature's hand over millennia.",
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/s2b2d59w/1-7.jpg',
-  //       activityTitle: 'Visit the Svalbard Global Seed Vault',
-  //       activityDescription: [
-  //         'Dubbed the "Doomsday Vault," the Svalbard Global Seed Vault serves as a backup storage facility for seeds from around the world, safeguarding agricultural biodiversity in the face of global crises.',
-  //         'While access to the interior is restricted, visitors can marvel at the futuristic architecture of the facility and learn about its crucial role in preserving plant genetic diversity.',
-  //       ],
-  //     },
-  //     {
-  //       activityImg: 'https://i.postimg.cc/65BpXWnJ/1-8.jpg',
-  //       activityTitle: 'Hiking and Glacier Exploration',
-  //       activityDescription: [
-  //         "Lace up your hiking boots and embark on an exploration of Svalbard's breathtaking landscapes. From gentle coastal walks to challenging mountain hikes, there are trails suitable for adventurers of all levels. Marvel at the towering glaciers, icy fjords, and panoramic vistas that define the Arctic wilderness..",
-  //         "In conclusion, Svalbard offers a wealth of experiences for intrepid travelers seeking to explore the wonders of the Arctic. Whether you're drawn to its abundant wildlife, stunning natural scenery, or unique cultural heritage, Svalbard promises an adventure unlike any other. Embrace the spirit of exploration and immerse yourself in the beauty of this remote Arctic paradise.",
-  //       ],
-  //     },
-  //   ],
-  // };
-
-  {
-    /* TODO: replce data with blogs from database and i with blog id */
-  }
-  // const slicedBlogs = data.slice(0, sliced);
 
   return (
     <section>
@@ -165,7 +91,7 @@ const SingleBlog = () => {
               alt={blog.title}
               width={824}
               height={462}
-              className='w-full rounded-lg md:block hidden'
+              className={`w-full rounded-lg md:block hidden ${blog?.image ? 'block' : 'hidden'}`}
             />
             <img
               src={'https://svalbardexperts.com/api/storyImages/' + blog?.image}
