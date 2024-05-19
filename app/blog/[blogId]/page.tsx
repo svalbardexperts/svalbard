@@ -136,7 +136,7 @@ const SingleBlog = () => {
 
               <div className='md:mt-9 mt-6 flex items-center justify-between'>
                 <p className='md:text-[22px] text-[15px] md:leading-8 leading-6 font-normal text-gray'>
-                  {blog.createdAt}
+                  {/* {blog.createdAt} */}
                 </p>
                 <p className='md:text-[22px] text-[15px] md:leading-8 leading-6 font-normal'>
                   {blog.categoryname}
