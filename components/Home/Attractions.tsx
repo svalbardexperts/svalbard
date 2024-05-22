@@ -142,6 +142,7 @@ const Attractions = () => {
       </p>
 
       {/* Attractions cards */}
+      <div className='w-full md:block hidden'>
       <div className='md:mt-14 mt-8 grid md:grid-cols-3 gap-6'>
         {data.map((item, index) => (
           <Card
@@ -173,7 +174,7 @@ const Attractions = () => {
                 </p>
                 <Modal>
                   <button
-                    className='relative bottom-0 left-0 gap-2 w-[170px] py-[6px] pl-[26px] pr-[6px] bg-base flex items-center justify-between md:rounded-[10px] rounded-sm'
+                    className='absolute bottom-0 left-0 gap-2 w-[170px] py-[6px] pl-[26px] pr-[6px] bg-base flex items-center justify-between md:rounded-[10px] rounded-sm'
                     style={{
                       boxShadow: '0px 4.01px 10.54px 0px #00000040',
                     }}
@@ -194,6 +195,7 @@ const Attractions = () => {
             </div>
           </Card>
         ))}
+      </div>
       </div>
 
       {/* Mobile view cards */}
@@ -255,3 +257,5 @@ const Attractions = () => {
 };
 
 export default Attractions;
+
+
