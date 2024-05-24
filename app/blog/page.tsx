@@ -267,19 +267,8 @@ const BlogPage = () => {
               </span>
             </Button>
           ) : (
-            <Button
-              variant='primary'
-              size='icon'
-              className='!w-[230px]'
-              onClick={handleViewLess}
-            >
-              <span className='text-lg text-black font-medium leading-7'>
-                View less
-              </span>
-              <span className='flex items-center justify-center bg-base w-[52px] h-[52px] rounded-md'>
-                <Image src={arrowWhiteUp} alt='Arrow' />
-              </span>
-            </Button>
+            <>
+            </>
           )}
         </div>
       </div>
