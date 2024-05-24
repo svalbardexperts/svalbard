@@ -13,13 +13,6 @@ import {
   attractionsImg8,
 } from '@/constants/images';
 import React, { useState } from 'react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '../ui/carousel';
 import { Card, CardContent } from '../ui/card';
 import Image from 'next/image';
 import Modal from '../ui/modal';
@@ -50,13 +43,13 @@ const data = [
   {
     img: attractionsImg3,
     title: 'Dog Sledding Tours',
-    text: "Try one of our funnest activities in Svalbard, where you'll find amazing views and excitement. If you are a dog lover, or just want to explore the wilderness, this tour is for you.  ",
+    text: "Try one of our funnest activities in Svalbard, where you'll find amazing views and excitement. If you are a dog lover, or just want to explore the wilderness, this tour is for you.",
     bookingPath: '',
   },
   {
     img: attractionsImg4,
     title: 'Snowmobiling Tours',
-    text: 'We are offering different snowmobile tours through the breathtaking Svalbard landscapes. ',
+    text: 'We are offering different snowmobile tours through the breathtaking Svalbard landscapes.',
     bookingPath: '',
   },
   {
@@ -74,7 +67,7 @@ const data = [
   {
     img: attractionsImg7,
     title: 'Hiking Tours',
-    text: 'If you are into hiking, we are offerig different hiking tours to different locations in Svalbard. If you want to walk to the seed vault, or to an ice cave, we can make it happen.',
+    text: 'If you are into hiking, we are offering different hiking tours to different locations in Svalbard. If you want to walk to the seed vault, or to an ice cave, we can make it happen.',
     bookingPath: '',
   },
   {
@@ -101,13 +94,13 @@ const mobileData = [
   {
     img: attractionsImg3Mobile,
     title: 'Dog Sledding Tours',
-    text: "Try one of our funnest activities in Svalbard, where you'll find amazing views and excitement. If you are a dog lover, or just want to explore the wilderness, this tour is for you.  ",
+    text: "Try one of our funnest activities in Svalbard, where you'll find amazing views and excitement. If you are a dog lover, or just want to explore the wilderness, this tour is for you.",
     bookingPath: '',
   },
   {
     img: attractionsImg4Mobile,
     title: 'Snowmobiling Tours',
-    text: 'We are offering different snowmobile tours through the breathtaking Svalbard landscapes. ',
+    text: 'We are offering different snowmobile tours through the breathtaking Svalbard landscapes.',
     bookingPath: '',
   },
   {
@@ -125,7 +118,7 @@ const mobileData = [
   {
     img: attractionsImg7Mobile,
     title: 'Hiking Tours',
-    text: 'If you are into hiking, we are offerig different hiking tours to different locations in Svalbard. If you want to walk to the seed vault, or to an ice cave, we can make it happen.',
+    text: 'If you are into hiking, we are offering different hiking tours to different locations in Svalbard. If you want to walk to the seed vault, or to an ice cave, we can make it happen.',
     bookingPath: '',
   },
   {
@@ -148,85 +141,66 @@ const Attractions = () => {
         to witness the mesmerizing northern lights. &quot;
       </p>
 
-      {/* Attractions slides */}
-      <div className='md:mt-14 mt-8'>
-        <AttractionsSlides />
+      {/* Attractions cards */}
+      <div className='w-full md:block hidden'>
+      <div className='md:mt-14 mt-8 grid md:grid-cols-3 gap-6'>
+        {data.map((item, index) => (
+          <Card
+            key={index}
+            className='bg-transparent relative w-full scale-95'
+            style={{
+              boxShadow: '0.74px 0px 8px 2.22px #3131311A',
+            }}
+          >
+            <CardContent>
+              <div className='md:mb-6'>
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={423}
+                  height={335}
+                  className='rounded-sm w-full h-[335px]'
+                />
+              </div>
+            </CardContent>
+            {/* card descriptions */}
+            <div className='pr-[54px] pb-[30px] pl-5 pt-5'>
+              <div className='md:min-h-[294px] relative'>
+                <h3 className='font-bold text-[30px] leading-[30px] text-[#2E3034]'>
+                  {item.title}
+                </h3>
+                <p className='text-normal text-[14px] leading-6 text-[#53555A] mt-3 mb-4'>
+                  {item.text}
+                </p>
+                <Modal>
+                  <button
+                    className='absolute bottom-0 left-0 gap-2 w-[170px] py-[6px] pl-[26px] pr-[6px] bg-base flex items-center justify-between md:rounded-[10px] rounded-sm'
+                    style={{
+                      boxShadow: '0px 4.01px 10.54px 0px #00000040',
+                    }}
+                  >
+                    <span className='md:text-[15px] text-[12px] leading-[24px] text-white'>
+                      Book now
+                    </span>
+                    <span className='md:w-10 w-7 md:h-10 h-7 md:rounded-sm rounded-[5px] grid place-content-center bg-white'>
+                      <Image
+                        src={arrowGreenUp}
+                        alt='Book now'
+                        className='md:scale-100 scale-75'
+                      />
+                    </span>
+                  </button>
+                </Modal>
+              </div>
+            </div>
+          </Card>
+        ))}
       </div>
-    </section>
-  );
-};
-
-function AttractionsSlides() {
-  const [sliced, setSliced] = useState(4);
-  return (
-    <>
-      <Carousel
-        opts={{
-          align: 'start',
-        }}
-        className='w-full md:block hidden'
-      >
-        <CarouselContent>
-          {data.map((item, index) => (
-            <CarouselItem key={index} className='md:basis-1/3 border-0'>
-              <Card
-                className='bg-transparent relative w-full scale-95'
-                style={{
-                  boxShadow: '0.74px 0px 8px 2.22px #3131311A',
-                }}
-              >
-                <CardContent>
-                  <div className='md:mb-6'>
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      width={423}
-                      height={335}
-                      className='rounded-sm w-full h-[335px]'
-                    />
-                  </div>
-                </CardContent>
-                {/* card descriptions */}
-                <div className='pr-[54px] pb-[30px] pl-5'>
-                  <div className='md:min-h-[294px] relative'>
-                    <h3 className='font-bold text-[30px] leading-[30px] text-[#2E3034]'>
-                      {item.title}
-                    </h3>
-                    <p className='text-normal text-[14px] leading-6 text-[#53555A] mt-3 mb-4'>
-                      {item.text}
-                    </p>
-                    <Modal>
-                      <button
-                        className='absolute bottom-0 left-0  gap-2 w-[170px] py-[6px] pl-[26px] pr-[6px] bg-base flex items-center justify-between md:rounded-[10px] rounded-sm'
-                        style={{
-                          boxShadow: '0px 4.01px 10.54px 0px #00000040',
-                        }}
-                      >
-                        <span className='md:text-[15px] text-[12px] leading-[24px] text-white'>
-                          Book now
-                        </span>
-                        <span className='md:w-10 w-7 md:h-10 h-7 md:rounded-sm rounded-[5px] grid place-content-center bg-white'>
-                          <Image
-                            src={arrowGreenUp}
-                            alt='Book now'
-                            className='md:scale-100 scale-75'
-                          />
-                        </span>
-                      </button>
-                    </Modal>
-                  </div>
-                </div>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className='-translate-x-3' />
-        <CarouselNext className='translate-x-3' />
-      </Carousel>
+      </div>
 
       {/* Mobile view cards */}
-      <div className='w-full md:hidden space-y-4'>
-        {mobileData.slice(0, sliced).map((item, index) => (
+      <div className='w-full md:hidden space-y-4 mt-8'>
+        {mobileData.map((item, index) => (
           <Card
             key={index}
             className='bg-transparent relative'
@@ -235,7 +209,7 @@ function AttractionsSlides() {
             }}
           >
             <CardContent>
-              <div className='md:mb-6'>
+              <div className='mb-4'>
                 <Image
                   src={item.img}
                   alt={item.title}
@@ -246,18 +220,14 @@ function AttractionsSlides() {
               </div>
             </CardContent>
             {/* card descriptions */}
-            <div className='pr-8 pb-[44px] pl-[17px] pt-6'>
+            <div className='pr-8 pb-[44px] pl-[17px]'>
               <div className='relative'>
                 <h3 className='font-medium text-[28px] leading-[28px] text-[#2E3034]'>
                   {item.title}
                 </h3>
-                <p
-                  className='text-normal text-[12px] leading-[20px] text-[#53555A] mt-[10px]
-                mb-5 '
-                >
+                <p className='text-normal text-[12px] leading-[20px] text-[#53555A] mt-[10px] mb-5'>
                   {item.text}
                 </p>
-
                 <Modal>
                   <button
                     className='gap-2 w-[130px] py-1 pl-3 pr-1 bg-base flex items-center justify-between rounded-sm'
@@ -281,43 +251,11 @@ function AttractionsSlides() {
             </div>
           </Card>
         ))}
-
-        <div className='mt-8 w-full flex justify-center'>
-          {sliced < data.length ? (
-            <button
-              className='w-[125px] rounded-sm p-2 pl-3 flex items-center justify-between gap-3 bg-primaryText'
-              style={{
-                boxShadow: '0px 2px 8px 0px #00000026',
-              }}
-              onClick={() => setSliced((sliced) => sliced + 4)}
-            >
-              <span className='text-[13px] font-normal text-black leading-6'>
-                See More
-              </span>
-              <span className='grid w-7 h-7 rounded-[5px] bg-base place-content-center'>
-                <Image src={arrowWhiteUp} alt='Arrow' className='scale-75' />
-              </span>
-            </button>
-          ) : (
-            <button
-              className='w-[125px] h-[36px] rounded-sm p-2 pl-3 flex items-center justify-between gap-3 bg-primaryText'
-              style={{
-                boxShadow: '0px 2px 8px 0px #00000026',
-              }}
-              onClick={() => setSliced((sliced) => sliced - 4)}
-            >
-              <span className='text-[13px] font-normal text-black leading-6'>
-                See Less
-              </span>
-              <span className='grid w-7 h-7 rounded-[5px] bg-base place-content-center'>
-                <Image src={arrowWhiteUp} alt='Arrow' className='scale-75' />
-              </span>
-            </button>
-          )}
-        </div>
       </div>
-    </>
+    </section>
   );
-}
+};
 
 export default Attractions;
+
+
