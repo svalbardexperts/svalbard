@@ -28,36 +28,51 @@ import GetInTouch from '@/components/shared/GetInTouch';
 
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('categories');
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<any>([]);
   const [sliced, setSliced] = useState(8);
   const [query, setQuery] = useState('');
+  const [page,setPage]=useState(1);
+  const [totalPages,setTotalPages]=useState(0);
   const [categories, setCategories] = useState([]);
   useLayoutEffect(() => {
     const fetchData = async () => {
       try {
         const catresp = await fetch("https://svalbardexperts.com/api/story/getallcategories");
         const catdata = await catresp.json();
-        const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page=1");
+        const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page="+page);
         const data = await response.json();
+        setTotalPages(data.pages);
         setBlogs(data.data);
         setCategories(catdata.data);
         return data.data;
       } catch (err) {
         throw new Error("Error fetching blogs");
       }
-      // const data = await getBlogs();
-      // setBlogs(data);
     };
     fetchData();
   }, []);
 
+  const getMoreBlogs = async (page:any) => {
+    try {
+      const response = await fetch("https://svalbardexperts.com/api/story/getAllStories?search=&page="+page);
+      const data = await response.json();
+      setBlogs([...blogs, ...data.data]);
+      return data.data;
+    } catch (err) {
+      throw new Error("Error fetching blogs");
+    }
+  }
+
   const handleViewMore = () => {
-    setSliced(sliced + 4);
+    setPage(page+1);
+    getMoreBlogs(page+1);
+    setSliced(sliced + 6);
   };
 
   const handleViewLess = () => {
-    window.scrollTo(0, 4800);
-    setSliced(sliced - 4);
+    // window.scrollTo(0, 4800);
+    setSliced(sliced - 6);
+    setPage(page-1);
   };
 
   //TODO: replace the data with actual blogs data
@@ -237,7 +252,7 @@ const BlogPage = () => {
           }
         </div>
         <div className='md:mt-12 md:grid place-content-center hidden '>
-          {sliced !== categorizedBlogs.length ? (
+          {page < totalPages ? (
             <Button
               variant='primary'
               size='md'

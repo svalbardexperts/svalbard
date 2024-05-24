@@ -111,7 +111,7 @@ function Card({
               <span className='text-darker'>{category}</span>
             </p>
             <p className='text-gray text-[9px] font-normal leading-[160%]'>
-              {date}
+              {/* {date} */}
             </p>
           </div>
         </div>

@@ -113,20 +113,22 @@ const NatureTouchSection = () => {
                         '-2px -2px 8px 0px #00000026, 2px 2px 8px 0px #00000026',
                     }}
                   />
+                  <Link href={item.path} className='w-full flex justify-center'>
 
-                  <div className='absolute bottom-0 left-0 right-0 glass py-[23px] pr-[14px] pl-3 md:h-[86px] rounded-sm flex items-center justify-between'>
-                    <h3 className='text-[17px] leading-[30px] font-medium text-white'>
-                      {item.title}
-                    </h3>
-                    <div className='w-10 h-10 rounded-md grid place-content-center bg-white'>
-                      <Image
-                        src={arrowGreenUp}
-                        alt='Arrow'
-                        width={20}
-                        height={20}
-                      />
+                    <div className='absolute bottom-0 left-0 right-0 glass py-[23px] pr-[14px] pl-3 md:h-[86px] rounded-sm flex items-center justify-between'>
+                      <h3 className='text-[17px] leading-[30px] font-medium text-white'>
+                        {item.title}
+                      </h3>
+                      <div className='w-10 h-10 rounded-md grid place-content-center bg-white'>
+                        <Image
+                          src={arrowGreenUp}
+                          alt='Arrow'
+                          width={20}
+                          height={20}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}

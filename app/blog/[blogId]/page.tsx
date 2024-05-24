@@ -11,6 +11,7 @@ import BlogSlider from './Pagination';
 import NextImage from 'next/image';
 
 
+
 const SingleBlog = () => {
   const params = useParams();
   const [tagged, setTagged] = useState(false);
@@ -201,7 +202,7 @@ const SingleBlog = () => {
                       <span className='text-darker'>{item.categoryname}</span>
                     </p>
                     <p className='text-black md:text-lg text-[10px] font-normal leading-[160%]'>
-                      {item.createdAt}
+                      {/* {item.createdAt} */}
                     </p>
                   </div>
                 </div>
@@ -222,9 +223,9 @@ const SingleBlog = () => {
                   </span>
                 </Button>
               ) : (
+                <Link href='/blog'>
                 <Button
                   variant='paginate'
-                // onClick={() => handleMorePosts}
                 >
                   <span className='text-lg leading-7 text-white'>
                     More posts
@@ -233,6 +234,7 @@ const SingleBlog = () => {
                     <NextImage src={arrowGreenUp} alt='Book now' />
                   </span>
                 </Button>
+                </Link>
               )}
             </div>
           </div>
