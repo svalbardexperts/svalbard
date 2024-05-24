@@ -251,12 +251,12 @@ const BlogPage = () => {
             ))
           }
         </div>
-        <div className='md:mt-12 md:grid place-content-center hidden '>
+        <div className='mt-12 grid place-content-center'>
           {page < totalPages ? (
             <Button
               variant='primary'
-              size='md'
-              className='md:!w-[230px]'
+              size='icon'
+              className='w-[230px]'
               onClick={handleViewMore}
             >
               <span className='text-lg text-black font-medium leading-7'>
@@ -269,8 +269,8 @@ const BlogPage = () => {
           ) : (
             <Button
               variant='primary'
-              size='md'
-              className='md:!w-[230px]'
+              size='icon'
+              className='!w-[230px]'
               onClick={handleViewLess}
             >
               <span className='text-lg text-black font-medium leading-7'>
