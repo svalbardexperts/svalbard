@@ -150,9 +150,9 @@ const SingleBlog = () => {
             </p>
 
             {/* Activities */}
-            <div className='md:pl-0 pl-4 md:pr-0 pr-[13px]'>
+            <div className='md:pl-0 pl-4 md:pr-0 pr-[13px] class'>
 
-              <p className='md:text-lg text-[15px] text-start font-normal md:leading-7 leading-6 text-[#42403F]'
+              <p className='blog-data'
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               >
               </p>
