@@ -17,7 +17,8 @@ const HomeBanner = () => {
             muted
             loop
             playsInline
-            // poster='../public/assets/images/video-img.jpg'
+            preload="auto"
+            poster='../public/assets/images/video-img.jpg'
             src={require('../../public/video/video.mp4')}
           ></video>
         </div>
