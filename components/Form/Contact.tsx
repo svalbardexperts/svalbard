@@ -69,9 +69,8 @@ export function Contact() {
     });
     const data = await response.json().finally(() => setLoading(false));
     if (response.ok) {
-      alert('Form submitted successfully');
-    }
-    else {
+      window.location.href = '/thankyou';
+    } else {
       alert('Form already submitted');
     }
   }
@@ -160,3 +159,4 @@ export function Contact() {
     </Form>
   );
 }
+  

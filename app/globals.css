@@ -153,6 +153,29 @@
   }
 }
 
+/* thank you page style */
+
+.Thank-you-page-content{
+  margin-top: 15%;
+  margin-bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+.thank-you-text{
+  font-size: 6.25rem;
+  font-weight: 600;
+}
+.thank-you-checkmark{
+  color:#017867;
+  font-size: 7rem;
+}
+/* .thank-you-experts-text{
+  font-weight: 600;
+} */
+
+
 @media only screen and (max-width: 767px) {
 .form-main-for-mobile{
   margin-top: -100px;
