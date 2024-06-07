@@ -165,7 +165,7 @@
 }
 .thank-you-text{
   font-size: 6.25rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 .thank-you-checkmark{
   color:#017867;
@@ -188,6 +188,23 @@
 .custom-z-index-nav{
   z-index: 103;
 }
+
+
+
+.thank-you-text{
+  font-size: 3.25rem;
+
+}
+
+.thank-you-checkmark{
+  font-size: 5rem;
+}
+
+.Thank-you-page-content{
+  margin-top: 25%;
+  margin-bottom: 20%;
+}
+
 }
 
 
